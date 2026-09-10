@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en" data-page-node-id="nOGKrmw7K6KnVR10GkDPHK">
+<head data-page-node-id="4TH92HIiLwwpUvDkPEBcxP">
+<meta charset="UTF-8" data-page-node-id="HsemBz0wB18lXqnZ3jVH1V">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="nTgDcHobeRFm4LSDSUmv96">
+<title>SICM HUB — Mathematical results for the AI era</title>
+<style>
+:root{--bg:#f7f6f3;--card:#fff;--ink:#1f2328;--muted:#5f6368;--line:#e2e0da;--accent:#534AB7;--accent-soft:#EEEDFE;--blue:#185FA5;--blue-soft:#E6F1FB;--teal:#0F6E56;--teal-soft:#E1F5EE;--amber:#854F0B;--amber-soft:#FAEEDA;--red:#A32D2D;--red-soft:#FCEBEB;--green:#3B6D11;--green-soft:#EAF3DE;--gray-soft:#F1EFE8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,sans-serif;background:var(--bg);color:var(--ink);font-size:14.5px;line-height:1.7}
+a{color:var(--blue);text-decoration:none;cursor:pointer}
+.topnav{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:4px;background:#fff;border-bottom:1px solid var(--line);padding:10px 20px}
+.logo{font-weight:700;font-size:17px;margin-right:12px;cursor:pointer}.logo span{color:var(--accent)}
+.nav-btn{border:none;background:none;padding:7px 12px;border-radius:8px;cursor:pointer;font-size:14px;color:var(--muted)}
+.nav-btn:hover{background:var(--gray-soft)}.nav-btn.active{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.spacer{flex:1}
+.copilot-btn{border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent);padding:7px 14px;border-radius:999px;cursor:pointer;font-size:13px;font-weight:600}
+.lang-btn{border:1px solid var(--line);background:var(--gray-soft);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:12.5px;color:var(--ink)}
+.usersel{border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-size:12.5px;background:#fff;color:var(--ink);max-width:210px}
+.avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#534AB7,#185FA5);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;cursor:pointer;flex-shrink:0}
+.page{display:none;max-width:1180px;margin:0 auto;padding:26px 22px 90px}.page.active{display:block}
+h1{font-size:24px;font-weight:700}h2{font-size:18px;font-weight:600;margin:26px 0 12px}h3{font-size:15px;font-weight:600;margin:14px 0 8px}
+.sub{color:var(--muted);font-size:13.5px;margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:12px 0}
+.grid{display:grid;gap:14px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:900px){.g2,.g3{grid-template-columns:1fr}}
+.pill{display:inline-block;font-size:12px;padding:2px 10px;border-radius:999px;font-weight:600;white-space:nowrap;vertical-align:middle}
+.p-green{background:var(--green-soft);color:var(--green)}.p-teal{background:var(--teal-soft);color:var(--teal)}.p-blue{background:var(--blue-soft);color:var(--blue)}.p-amber{background:var(--amber-soft);color:var(--amber)}.p-red{background:var(--red-soft);color:var(--red)}.p-gray{background:var(--gray-soft);color:var(--muted)}.p-purple{background:var(--accent-soft);color:var(--accent)}
+.b-green{border-left:4px solid #639922}.b-yellow{border-left:4px solid #EF9F27}.b-red{border-left:4px solid #E24B4A}.b-gray{border-left:4px solid #B4B2A9}
+.be{border:1.5px dashed #c9c5ba;border-radius:10px;background:#fbfaf7;padding:11px 15px;margin:12px 0;font-size:12.5px;color:var(--muted)}
+.be b{color:var(--ink)}.tag-be{display:inline-block;background:#2b2b2b;color:#fff;font-size:11px;padding:1px 8px;border-radius:6px;margin-right:8px;letter-spacing:1px}
+code{background:var(--gray-soft);padding:1px 6px;border-radius:5px;font-size:12.5px;font-family:"SF Mono",Menlo,monospace}
+.btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 16px;cursor:pointer;font-size:13.5px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.btn.small{padding:4px 12px;font-size:12.5px;border-radius:7px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+input[type=text],input[type=search],textarea,select{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 12px;font-size:13.5px;font-family:inherit;background:#fff;color:var(--ink)}
+textarea{min-height:80px;resize:vertical}
+label.f{display:block;font-size:12.5px;color:var(--muted);margin:12px 0 5px;font-weight:600}
+.muted{color:var(--muted)}.small{font-size:12.5px}
+.type-tag{font-size:19px;font-weight:700;padding:5px 16px;border-radius:12px;display:inline-block}
+.badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.timeline{border-left:2px solid var(--line);margin-left:8px;padding-left:20px}
+.tl-item{position:relative;padding:6px 0 14px}
+.tl-item::before{content:"";position:absolute;left:-26px;top:13px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid #fff}
+.qbox{border:2px solid var(--amber);background:var(--amber-soft);border-radius:10px;padding:11px 14px;margin-top:10px}
+.qbox .qt{font-weight:700;color:var(--amber);font-size:13px}
+.who{display:flex;align-items:center;gap:9px;margin:10px 0 6px}
+.comment-toggle{border-top:1px dashed var(--line);margin-top:12px;padding-top:9px}
+.comment-body{display:none;margin-top:8px}.comment-body.open{display:block}
+.comment{display:flex;gap:10px;margin:10px 0}
+table.t{width:100%;border-collapse:collapse;font-size:13px;background:#fff}
+table.t th{background:#2b2b2b;color:#fff;text-align:left;padding:8px 12px;font-weight:500}
+table.t td{padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.issues-layout{display:grid;grid-template-columns:1fr 350px;gap:16px}
+@media(max-width:960px){.issues-layout{grid-template-columns:1fr}}
+.ai-panel{background:linear-gradient(180deg,#FDFCF9,#fff);border:1.5px solid var(--accent);border-radius:12px;padding:15px;position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto}
+.ai-panel h3{color:var(--accent)}
+.ai-item{border:1px solid var(--line);border-radius:9px;padding:10px 12px;margin:8px 0;font-size:12.5px;background:#fff}
+.ai-item.rec{border-color:var(--accent);background:var(--accent-soft)}
+.merged{font-size:12px;color:var(--muted);margin-top:6px;padding-left:10px;border-left:2px solid var(--line)}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;transition:box-shadow .15s}
+.pcard:hover{box-shadow:0 3px 14px rgba(0,0,0,.07)}
+.pcard .title{font-weight:700;font-size:15px;margin-top:8px}
+.copilot{position:fixed;top:0;right:-430px;width:410px;max-width:95vw;height:100vh;background:#fff;border-left:1px solid var(--line);box-shadow:-8px 0 30px rgba(0,0,0,.08);z-index:100;transition:right .25s;display:flex;flex-direction:column}
+.copilot.open{right:0}
+.copilot .head{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.copilot .body{flex:1;overflow:auto;padding:14px 18px}
+.close{border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)}
+.res{border:1px solid var(--line);border-radius:10px;padding:10px 13px;margin:9px 0;cursor:pointer}
+.res:hover{border-color:var(--accent)}
+.res .rt{font-weight:600;font-size:13.5px}.res .rs{font-size:12px;color:var(--muted);margin-top:3px}
+.steps{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.step{flex:1;min-width:150px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}
+.step .n{width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-bottom:8px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#2b2b2b;color:#fff;padding:10px 22px;border-radius:10px;font-size:13.5px;z-index:200;display:none;max-width:80vw}
+.banner{background:var(--accent-soft);border:1px solid #d5d1f3;border-radius:10px;padding:10px 16px;font-size:13px;margin-bottom:16px;color:var(--accent)}
+.private-banner{background:var(--amber-soft);border:1px solid #ecd9b0;border-radius:10px;padding:10px 16px;font-size:13px;margin:10px 0;color:var(--amber)}
+.close-banner{background:var(--gray-soft);border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-size:13px;margin:10px 0}
+.filter{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 16px}
+.filter .pill{cursor:pointer;padding:4px 13px}
+.filter .pill.on{outline:2px solid var(--accent)}
+.kbd{display:inline-block;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:0 6px;font-size:11.5px;background:#fff}
+/* ---- repo detail v3: embedded reader ---- */
+.repo-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:4px 0 14px}
+.repo-layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px;align-items:start}
+.repo-side{position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;display:grid;gap:12px}
+@media(max-width:980px){.repo-layout{grid-template-columns:1fr}.repo-side{position:static;max-height:none}}
+.pdf-shell{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#2b2b2b}
+.pdf-toolbar{display:flex;align-items:center;gap:6px;padding:7px 12px;background:#2b2b2b;color:#e8e6df;font-size:12px;flex-wrap:wrap}
+.pdf-toolbar .pbtn{border:1px solid #55534d;background:#3a3a37;color:#e8e6df;border-radius:6px;padding:3px 10px;cursor:pointer;font-size:12px}
+.pdf-toolbar .pbtn:hover{background:#4b4b47}
+.pdf-toolbar .pi{color:#b9b6ac;min-width:34px;text-align:center}
+.pdf-body{height:74vh;min-height:480px;overflow:auto;background:#cfccc4;padding:18px 14px 36px;display:flex;justify-content:center}
+.paper{width:min(100%,800px);flex-shrink:0;background:#fff;box-shadow:0 3px 16px rgba(0,0,0,.28);padding:46px 54px;color:#16181c;font-family:"STIX Two Text",Georgia,"Times New Roman",serif;line-height:1.8;text-align:justify}
+.paper .pt{font-size:1.5em;line-height:1.3;text-align:center;margin:4px 0 12px;font-weight:600}
+.paper .pau{text-align:center;margin:3px 0}
+.paper .paf{text-align:center;font-size:.85em;color:#555;margin:3px 0 10px}
+.paper hr{border:none;border-top:1px solid #9a9a9a;margin:12px 0}
+.paper h2{font-size:1.02em;margin:18px 0 6px;text-align:left;font-weight:700}
+.paper p{margin:7px 0}
+.paper .thm{margin:12px 0;padding:10px 14px;border-left:3px solid #2b2b2b;background:#f6f6f3;text-align:left}
+.paper .tt{font-weight:700}
+.leanok{display:inline-block;margin-left:8px;font-size:11px;background:#EAF3DE;color:#3B6D11;padding:1px 8px;border-radius:999px;font-family:-apple-system,"PingFang SC",sans-serif;white-space:nowrap}
+.paper .refs{padding-left:20px;font-size:.88em}
+.paper .refs li{margin:4px 0;text-align:left}
+.vstage{position:relative;aspect-ratio:16/9;background:radial-gradient(120% 140% at 30% 20%,#2b3346,#12161f 72%);cursor:pointer;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.vstage:hover .vbig{transform:scale(1.07);background:rgba(83,74,183,.85);border-color:#fff}
+.vbig{width:88px;height:88px;border-radius:50%;background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.55);color:#fff;font-size:34px;display:flex;align-items:center;justify-content:center;transition:all .15s;padding-left:7px}
+.vstage.playing .vbig{width:46px;height:46px;font-size:14px;padding-left:0;background:rgba(0,0,0,.45);border-color:rgba(255,255,255,.8)}
+.vlive{position:absolute;top:12px;left:14px;color:#fff;font-size:11px;letter-spacing:1px;background:rgba(163,45,45,.85);padding:2px 9px;border-radius:5px;display:none}
+.vstage.playing .vlive{display:block}
+.vtitle{position:absolute;top:12px;right:14px;color:rgba(255,255,255,.85);font-size:12px;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.wave{position:absolute;bottom:46px;left:50%;transform:translateX(-50%);display:flex;gap:3px;align-items:flex-end;height:26px;opacity:0;transition:opacity .3s}
+.vstage.playing .wave{opacity:.85}
+.wave i{width:3px;height:4px;background:rgba(255,255,255,.75);border-radius:2px;animation:wv 1s ease-in-out infinite alternate}
+@keyframes wv{from{height:4px}to{height:26px}}
+.vbot{position:absolute;bottom:0;left:0;right:0;padding:10px 14px;display:flex;align-items:center;gap:10px;color:#fff;font-size:12px;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.vbar{flex:1;height:4px;background:rgba(255,255,255,.28);border-radius:2px;overflow:hidden}
+.vbar i{display:block;height:100%;width:0;background:#fff;border-radius:2px}
+.avhead{background:var(--gray-soft);border-bottom:1px solid var(--line);font-size:12.5px;color:var(--muted);padding:7px 20px}
+.avwrap{position:relative;max-height:calc(74vh / 3);overflow:hidden;cursor:pointer;background:#d9d7d0;border-bottom:1px solid var(--line);padding:26px 26px 0}
+.avwrap.open{max-height:none;cursor:default}
+.avpage{background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.16),0 10px 26px rgba(0,0,0,.10);padding:46px 52px 40px;font-size:15.5px;line-height:1.95;max-width:72ch;margin:0 auto;color:#16181c;font-family:"STIX Two Text",Georgia,"Times New Roman",serif;text-align:justify}
+.avfade{position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(rgba(217,215,208,0),#d9d7d0 72%);display:flex;align-items:flex-end;justify-content:center;padding-bottom:10px;font-size:12px;color:#55534c;font-family:-apple-system,"PingFang SC",sans-serif}
+.avwrap.open .avfade{display:none}
+.issue-board{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:18px;align-items:start}
+.ib-ai{position:sticky;top:70px}
+.ib-official{display:grid;gap:10px}
+.oi-merged{opacity:.75}
+</style>
+</head>
+<body data-page-node-id="DdvLNxEFXGQpUzPKCIzJ8y">
+<nav class="topnav" id="topnav" data-page-node-id="84j4kABlbiTGX08TEK8DUx"></nav>
+<div id="app" data-page-node-id="vHXG89B2H2l9FP7uveMHMz"></div>
+
+<aside class="copilot" id="copilot" data-page-node-id="7ZhIS6jcqKVb5R4mochA0r">
+  <div class="head" id="cp-head" data-page-node-id="o7Ib0px1tI52FWtUZS1qAK"></div>
+  <div style="padding:14px 18px 0" data-page-node-id="BXCD2IIMrDMMFZATXgh38F"><input type="search" id="cp-q" oninput="copilotSearch()" data-page-node-id="G2noAPeSd7f2AJ9XhvCyOS"></div>
+  <div class="body" id="cp-body" data-page-node-id="ExrbvDHhCvhhwf0gSMLJ1l"><div id="cp-hint" data-page-node-id="UJRAufCGqH1QUQNJK3vcHM"></div></div>
+  <div class="be" style="margin:0;border:none;border-top:1px solid var(--line);border-radius:0" id="cp-be" data-page-node-id="l2wkxT8caOPFxAGipxuT2B"></div>
+</aside>
+<div class="toast" id="toast" data-page-node-id="hEdCNbZzZHG7WQXCztW2MW"></div>
+
+<script>
+/* =====================================================================
+   SICM HUB full site — bilingual (EN default / 中文) + role-differentiated UIs
+   Data layer: sample DATASET overlaid with localStorage persistence
+   ===================================================================== */
+const USERS={
+  liu:{name:{zh:'刘同学',en:'X. Liu'},role:{zh:'学生 · 教育邮箱认证',en:'Student · Edu-verified'},badge:'p-blue',init:'LY',inst:{zh:'SJTU · 代数方向',en:'SJTU · Algebra'},weight:'2×',quota:1,cpq:30},
+  chen:{name:{zh:'陈教授',en:'Prof. Chen'},role:{zh:'评论员 · 表示论方向',en:'Commentator · Repr. theory'},badge:'p-teal',init:'陈',inst:{zh:'SJTU',en:'SJTU'},weight:'5×',quota:3,field:'17B37',cpq:Infinity},
+  rao:{name:{zh:'Dr. Rao',en:'Dr. Rao'},role:{zh:'评论员 · 代数方向',en:'Commentator · Algebra'},badge:'p-teal',init:'R',inst:'KIAS',weight:'5×',quota:3,field:'17B37',cpq:Infinity},
+  petrov:{name:{zh:'A. Petrov',en:'A. Petrov'},role:{zh:'评论员 · 量子群方向',en:'Commentator · Quantum groups'},badge:'p-teal',init:'P',inst:'MPIM',weight:'5×',quota:3,field:'17B37',cpq:Infinity},
+  wang:{name:{zh:'王同学',en:'Y. Wang'},role:{zh:'研究生 · 贡献者',en:'Grad student · Contributor'},badge:'p-gray',init:'王',inst:{zh:'清华',en:'Tsinghua'},weight:'2×',quota:1,cpq:30},
+  u9527:{name:{zh:'用户9527',en:'User 9527'},role:{zh:'普通用户',en:'Regular user'},badge:'p-gray',init:'9',inst:'—',weight:'1×',quota:0,cpq:10},
+  kong:{name:{zh:'孔教授',en:'Prof. Kong'},role:{zh:'评论员 · 大奖得主白名单',en:'Commentator · Prize-winner whitelist'},badge:'p-amber',init:'孔',inst:'SICM',weight:'10×',quota:Infinity,field:'*',cpq:Infinity}
+};
+const TYPE_LABEL={
+  full:{zh:'完整文章',en:'Full article'},
+  partial:{zh:'部分解决',en:'Partial solution'},
+  framework:{zh:'解决框架',en:'Solution framework'},
+  problem:{zh:'问题',en:'Problem'}
+};
+const REPOS=[
+ {id:'yang',type:'full',ai:'own',title:{zh:'Finite-order Yangians and the reflection equation',en:'Finite-order Yangians and the reflection equation'},msc:{zh:'MSC 17B37 · 李理论与表示论',en:'MSC 17B37 · Lie theory & representation theory'},
+  authors:['liu','chen'],contributors:['liu','chen','wang'],stars:412,score:1873,
+  check:{lean:'pass',l2:'A',exag:false,tech:false},
+  versions:[{v:'v2',date:'2026-09-02',note:{zh:'采纳 PR #3：补充定理 2.7 的对偶性证明（贡献者 王同学 加入作者行列）',en:'Merged PR #3: dual proof of Theorem 2.7 added (contributor Y. Wang joins the authors)'}},{v:'v1',date:'2026-08-21',note:{zh:'初版',en:'Initial version'}}],
+  comments:[],
+  prs:[{id:'#3',title:{zh:'补充定理 2.7 对偶性证明',en:'Add the dual proof of Theorem 2.7'},by:'wang',status:'merged'}],
+  discussion:'public',closed:false,
+  issues:[
+   {by:'wang',date:'2026-09-07',title:{zh:'定理 2.7 的对偶性证明能否推广到扭曲 Yangian？',en:'Can the dual proof of Theorem 2.7 be extended to twisted Yangians?'},body:{zh:'看起来对偶证明只用到余乘的有限性，而扭曲情形的余乘仍然有限——想确认是否有隐藏障碍。',en:'The dual proof seems to use only finiteness of the comultiplication, which persists in the twisted case — checking for hidden obstructions.'},ai:{summary:{zh:'独立簇 · 询问对偶证明的技术前提（余乘有限性）在扭曲情形是否保留。',en:'Standalone cluster · asks whether the technical premise of the dual proof (finitess of the comultiplication) survives the twisted case.'},merged:[{zh:'同类提交 1 条（口语化表述）已归并至此',en:'One similar submission (colloquial phrasing) merged under this one'}]}},
+   {by:'u9527',date:'2026-09-08',title:{zh:'B 型的反射方程怎么做',en:'How to do the reflection equation in type B'},body:{zh:'如题，求大佬指点',en:'As titled'},ai:{summary:{zh:'已归并：与「扭曲 Yangian 推广」簇重复，表述较口语化、无内容线索。',en:'Merged: duplicates the twisted-Yangian cluster; colloquial phrasing, no leads.'},merged:[]}}],
+  abs:{zh:'我们为有限阶 Yangian 建立了与反射方程的对应，并给出新的一族解。证明完全形式化：Lean 代码随仓库附上，Lean 陈述与论文定理声明的一致性核对通过。',en:'We establish a correspondence between finite-order Yangians and the reflection equation, and produce a new family of solutions. The proof is fully formalized: the Lean code ships with the repo, and the Lean-statement vs. paper-statement consistency check passed.'}},
+ {id:'center',type:'partial',ai:'pure',title:{zh:'On the center of quantized enveloping algebras at roots of unity',en:'On the center of quantized enveloping algebras at roots of unity'},msc:{zh:'MSC 17B37 · 李理论与表示论',en:'MSC 17B37 · Lie theory & representation theory'},
+  authors:['liu'],contributors:['liu','wang','rao','petrov'],stars:237,score:1102,
+  check:{lean:'tech',l2:'B',exag:true,tech:true},
+  versions:[{v:'v3',date:'2026-09-08',note:{zh:'采纳 PR #12：修正命题 4.2 的基变换论证（贡献者 王同学 加入作者行列）',en:'Merged PR #12: fixed the base-change argument in Proposition 4.2 (contributor Y. Wang joins the authors)'}},{v:'v2',date:'2026-09-03',note:{zh:'按 B 级诊断补充引理 3.1 细节',en:'Lemma 3.1 details added per the Grade-B diagnostic'}},{v:'v1',date:'2026-08-30',note:{zh:'初版',en:'Initial version'}}],
+  comments:[
+   {by:'chen',date:'2026-09-04',ver:'v2',media:{zh:'🎥 视频讲解 42:17',en:'🎥 Video walkthrough 42:17'},text:{zh:'投稿人声明「纯 AI 解决 · 本人完全不理解」，所以我的任务不是审它，而是把它完整讲给人类听——这就是评论员在新体系里的位置：AI 与人类之间的翻译者。\n先说结构：AI 证明了 type Aₙ、q 为奇数阶根的情形。第 3.1 节的基变换是全文的技术核心——它把 Lusztig 整形式上的结论搬到 k 上，这一步原稿跳了细节，v3 里 PR #12 补全（仿 Lusztig Prop. 19.3.7 的手法），我在视频 15:20–22:40 逐行讲了这段，为什么平坦性只用在循环模上、为什么这就够。\n第 4.2 节只对奇数阶根成立：q 为偶数阶根时中心里会出现额外的「幽灵中心元」，AI 的论证在这个参数带会失效——我在视频里给了一个具体的反例框架，展示失效发生在哪一步。\n面向想接手的人：问题 box 的 Q3 是我认为最有价值的切入点，从参数化 Weyl 群特征标入手可以绕开整块基变换。',en:'The submitter declared “pure AI — I do not understand it”, so my task is not to referee it but to explain it fully to humans — that is the commentator’s place in the new system: a translator between the AI and the humans.\nStructure first: the AI proved the type-Aₙ, odd-order-root case. The base change in §3.1 is the technical heart — it transports the statement from the Lusztig integral form down to k. The original draft skipped the details; PR #12 (merged in v3) filled them in, mirroring Lusztig Prop. 19.3.7. I walk through that argument line by line at 15:20–22:40 of the video: why flatness is only needed on cyclic modules, and why that is enough.\n§4.2 holds only for odd-order roots: when q has even order, the center picks up extra “ghost central elements” and the AI’s argument breaks in that range — I give a concrete counterexample framework in the video showing exactly where it fails.\nFor anyone who wants to take this up: Q3 in the problem box is in my view the most valuable entry point — starting from parameterized Weyl-group characters avoids the whole base-change package.'},qbox:[{zh:'Q1：补全引理 3.1 中 ⊗A → ⊗k 的基变换细节（提示：仿 Lusztig Prop. 19.3.7 的手法）。',en:'Q1: Fill in the base-change details ⊗A → ⊗k in Lemma 3.1 (hint: mirror the technique of Lusztig Prop. 19.3.7).'},{zh:'Q2：命题 4.2 请收窄到奇数阶根情形，或补充偶数阶论证。',en:'Q2: Narrow Proposition 4.2 to odd-order roots, or supply the even-order argument.'}]},
+   {by:'petrov',date:'2026-09-06',ver:'v3',media:{zh:'📄 文章评论',en:'📄 Article commentary'},text:{zh:'这是对陈教授视频讲解的链式跟进（引用 Q1/Q2），沿同一思路继续把这份纯 AI 稿件拆给人类。\nQ1（基变换细节）已由 PR #12 解决并合入 v3：我把补全后的证明与陈教授的视频逐段核对了一遍，结论是成立，正文第 2 节给出了核对清单。\nQ2（收窄到奇数阶根）已在当前摘要体现。剩下的是我提出的新方向：偶数阶情形的「幽灵中心元」应当有纯组合的刻画——我猜测它与参数化 Weyl 群特征标的稳定化子有关，正文给出三步验证计划，第一步可以直接在现有 Lean 骨架上补。\n疑点未决数：1（Q3）。',en:'A chained follow-up to Prof. Chen’s video walkthrough (referencing Q1/Q2), continuing to unpack this pure-AI submission for humans along the same lines.\nQ1 (base-change details) was resolved by PR #12 and merged into v3: I checked the completed proof segment by segment against the video — it holds; §2 of this article gives the checklist.\nQ2 (narrowing to odd-order roots) is now reflected in the current abstract. What remains is a new direction of mine: the ghost central elements in even order should admit a purely combinatorial characterization — my guess is that they relate to stabilizers of parameterized Weyl-group characters. The article lays out a three-step verification plan; step one can be added directly on the existing Lean skeleton.\nOpen suspicions: 1 (Q3).'},qbox:[{zh:'Q3：偶数阶根情形的中心元构造——建议从参数化 Weyl 群特征标入手。',en:'Q3: Center-element construction for even-order roots — start from parameterized Weyl group characters.'}]}],
+  prs:[{id:'#12',title:{zh:'修正命题 4.2 基变换论证',en:'Fix the base-change argument in Prop. 4.2'},by:'wang',status:'merged'},
+       {id:'#15',title:{zh:'修正引理 2.3 参考文献错引',en:'Fix a wrong citation in Lemma 2.3'},by:'u9527',status:'pending'},
+       {id:'#16',title:{zh:'重写整个 §4（夸大检测提示：单 PR 覆盖范围与「解决框架」标签不符）',en:'Rewrite all of §4 (exaggeration flag: single-PR scope inconsistent with the framework tag)'},by:'u9527',status:'checking'}],
+  discussion:'public',closed:false,
+  issues:[
+   {by:'wang',date:'2026-09-07',title:{zh:'命题 4.2 的偶数阶情形：幽灵中心元是否有组合刻画？',en:'Even-order case of Prop. 4.2: do the ghost central elements admit a combinatorial characterization?'},body:{zh:'承接评论员 Petrov 的 Q3：如果是参数化特征标的稳定化子不变量，应该能给出一个 n=2 的显式检验。',en:'Following commentator Petrov’s Q3: if they are stabilizer invariants of parameterized characters, an explicit n=2 test should be doable.'},ai:{summary:{zh:'与 Q3（偶数阶幽灵中心元）关联 · 给出 n=2 显式检验的接手路径。',en:'Linked to Q3 (even-order ghost central elements) · offers an n=2 explicit-test takeover path.'},merged:[{zh:'同类提交 1 条已归并至此',en:'One similar submission merged under this one'}]}},
+   {by:'u9527',date:'2026-09-08',title:{zh:'q 是偶数根的时候中心会多出什么',en:'What extra appears in the center for even-order q'},body:{zh:'看不懂 v3 的第 4 节',en:'Cannot follow §4 of v3'},ai:{summary:{zh:'已归并：与「幽灵中心元组合刻画」簇重复，表述较简略。',en:'Merged: duplicates the ghost-central-elements cluster; less detailed.'},merged:[]}}],
+  abs:{zh:'我们证明了带根单位量子包络代数中心的一类重要情形（type Aₙ，q 为奇数阶根），并给出一般情形的约化框架。',en:'We prove an important case of the center of quantized enveloping algebras at roots of unity (type Aₙ, q of odd order), and give a reduction framework for the general case.'}},
+ {id:'duflo',type:'framework',ai:'pure',title:{zh:'A framework toward the quantum Duflo isomorphism',en:'A framework toward the quantum Duflo isomorphism'},msc:{zh:'MSC 17B35 · 量子群',en:'MSC 17B35 · Quantum groups'},
+  authors:['u9527'],contributors:['u9527'],stars:156,score:804,
+  check:{lean:'fail',l2:'B',exag:false,tech:false},
+  versions:[{v:'v1',date:'2026-09-01',note:{zh:'初版',en:'Initial version'}}],
+  comments:[
+   {by:'kong',date:'2026-09-07',ver:'v1',media:{zh:'🎥 视频讲解 51:40',en:'🎥 Video walkthrough 51:40'},text:{zh:'投稿人声明「纯 AI · 本人完全不理解」——这类稿子正是评论员体系存在的理由：我来当 AI 与人类之间的翻译，把这份框架完整讲清楚。\n这份三步框架实际在说什么：第一步（已通过 Lean 编译）断言控制经典 Duflo 比较映射的形变复形在 Weyl 代数上是形式的；第二步在交换子展开处失败——Lean 把失败定位到第 47 行依赖的一条未证结合律恒等式；第三步（到量子情形的提升）整个悬空，AI 自己也承认只给了提纲。\n我在视频里做了三件事：用 20 分钟从 PBW 框架把第一步讲到能读；用一个具体的低阶反例演示第二步的恒等式为什么不自动成立；最后给出如果由人来接手，第三步应该从形变量子化的哪一端切入。\n结论：作为「解决框架」的标签是诚实的。接手价值集中在第二步那条恒等式——它很可能是一个可以独立形式化进 Mathlib 的引理。',en:'The submitter declared “pure AI — I do not understand it”. This kind of submission is exactly why the commentator system exists: I act as the translator between the AI and the humans, and explain this framework in full.\nWhat this three-step framework actually says: Step I (compiles in Lean) asserts that the deformation complex governing the classical Duflo comparison is formal over the Weyl algebra; Step II fails at the commutator expansion — Lean pins the failure down to an unproved associativity identity at line 47; Step III (the lift to the quantum case) is entirely hanging — the AI itself concedes it only gives an outline.\nThe video does three things: I spend 20 minutes building up from the PBW framework until Step I is readable; I use a concrete low-order counterexample to show why the Step II identity does not hold automatically; and I close with where a human should enter Step III if they take it over — which end of the deformation quantization to start from.\nVerdict: the “solution framework” tag is honest. The takeover value is concentrated in the Step II identity — quite likely a lemma that can be independently formalized into Mathlib.'},qbox:[{zh:'Q1：补证引理 3.4 的结合律恒等式（Lean 失败点已定位到行级）。',en:'Q1: Prove the missing associativity identity in Lemma 3.4 (the Lean failure is localized to the line level).'}]},
+   {by:'petrov',date:'2026-09-09',ver:'v1',media:{zh:'📄 文章评论',en:'📄 Article commentary'},text:{zh:'对孔教授视频讲解的链式跟进（引用 Q1）：我把第二步那条未证的结合律恒等式拆成了三个更弱的子断言，正文逐一给出证明骨架。\n子断言 (a) 与 (c) 可以在 Mathlib 现有 API 上直接拼出，我附了完整的 Lean 化路线图；(b) 是真正的新内容——它等价于一个低阶的组合恒等式，我在附录里做到了 n ≤ 4 的手算验证。\n接手建议：从 (b) 开始，它不依赖任何未证内容，且单独成立就足以让第二步的展开在低阶情形闭合。\n疑点未决数：1（Q1 整体仍开放，但已拆分为可独立接手的三个子问题）。',en:'A chained follow-up to Prof. Kong’s video walkthrough (referencing Q1): I split the unproved associativity identity of Step II into three weaker sub-assertions and give a proof skeleton for each.\nSub-assertions (a) and (c) assemble directly from existing Mathlib API — I attach a complete Lean-ification roadmap; (b) is the genuinely new content — it is equivalent to a low-order combinatorial identity, hand-checked to n ≤ 4 in the appendix.\nTakeover advice: start from (b); it depends on nothing unproved, and alone it already closes the Step II expansion in low order.\nOpen suspicions: 1 (Q1 remains open overall, but is now split into three independently adoptable sub-problems).'},qbox:[{zh:'Q2：把子断言 (b) 形式化进 Mathlib（预计 200 行以内，无新依赖）。',en:'Q2: Formalize sub-assertion (b) into Mathlib (under ~200 lines, no new dependencies).'}]}],
+  prs:[{id:'#16',title:{zh:'重写整个 §4',en:'Rewrite all of §4'},by:'u9527',status:'checking'}],
+  discussion:'public',closed:false,
+  issues:[
+   {by:'wang',date:'2026-09-09',title:{zh:'第二步的结合律恒等式是否等价于某个已知引理？',en:'Is the Step II associativity identity equivalent to some known lemma?'},body:{zh:'Petrov 的子断言 (b) 看起来像 PBW 框架里的经典计算，想确认文献里是否已有现成版本。',en:'Petrov’s sub-assertion (b) looks like a classical computation in the PBW framework — checking whether a ready-made version already exists in the literature.'},ai:{summary:{zh:'与 Q1/Q2（结合律恒等式拆分）关联 · 询问文献现状。',en:'Linked to Q1/Q2 (the split of the associativity identity) · asks about the literature.'},merged:[]}}],
+  abs:{zh:'提出通往量子 Duflo 同构的一个三步框架。注意：本仓库为「解决框架」——尚未构成完整证明，Lean check 未通过的部分已在诊断报告中逐条定位。',en:'A three-step framework toward the quantum Duflo isomorphism. Note: this repo is a solution framework — not yet a complete proof; the Lean-check failures are itemized in the diagnostic report.'}},
+ {id:'tropical',type:'full',ai:'own',title:{zh:'The equational theory of the tropical semiring is decidable',en:'The equational theory of the tropical semiring is decidable'},msc:{zh:'MSC 03B25 · 逻辑与形式化',en:'MSC 03B25 · Logic & formalization'},
+  authors:['wang','chen'],contributors:['wang','chen','liu','petrov'],stars:388,score:1655,
+  check:{lean:'pass',l2:'A',exag:false,tech:false},
+  versions:[{v:'v2',date:'2026-09-05',note:{zh:'期刊投稿版（冻结）',en:'Journal submission version (frozen)'}},{v:'v1',date:'2026-08-11',note:{zh:'初版',en:'Initial version'}}],
+  comments:[],
+  prs:[],discussion:'public',closed:true,
+  issues:[],
+  closedNote:{zh:'仓库已关闭：全体贡献者与评论员共同署名投稿《Annals of Formal Mathematics》，审稿中。最终稿已在致谢中提及 SICM HUB 并附仓库 DOI（10.sicm/2026.0388）。',en:'Repo closed: all contributors and commentators co-signed a submission to the Annals of Formal Mathematics, now under review. The final version acknowledges SICM HUB with the repo DOI (10.sicm/2026.0388).'},
+  abs:{zh:'证明了热带半环的等式理论可判定。全程 Lean 形式化，仓库关闭后由 4 位贡献者与 2 位评论员共同署名投往期刊。',en:'The equational theory of the tropical semiring is decidable. Fully formalized in Lean; after closure, 4 contributors and 2 commentators co-signed the journal submission.'}},
+ {id:'sqg',type:'framework',ai:'own',title:{zh:'Modules over the small quantum group: a survey of obstructions',en:'Modules over the small quantum group: a survey of obstructions'},msc:{zh:'MSC 17B37 · 量子群',en:'MSC 17B37 · Quantum groups'},
+  authors:['rao'],contributors:['rao','chen'],stars:98,score:460,
+  check:{lean:'tech',l2:'B',exag:false,tech:true},
+  versions:[{v:'v1',date:'2026-08-25',note:{zh:'初版',en:'Initial version'}}],
+  comments:[],
+  prs:[],discussion:'private',closed:false,
+  issues:[
+   {by:'chen',date:'2026-09-01',title:{zh:'阻塞点清单第 3 条（张量分解不封闭）是否已有绕行方案？',en:'Is there a workaround for blocker #3 (tensor decomposition not closed)?'},body:{zh:'私密区块内部讨论到一半的线索：转向相对投射模。',en:'A lead half-discussed inside the private block: pass to relative projective modules.'},ai:{summary:{zh:'贡献者提交 · 承接阻塞点清单 · 私密区块内部线索的公开化。',en:'Contributor submission · follows the obstruction list · publicizes a lead from the private block.'},merged:[]}}],
+  abs:{zh:'整理小量子群模研究中的五类阻塞点。本仓库讨论处于私密模式：评论员区块群组式合作中，普通用户不可评论、不可提交 PR；文章与版本始终公开。',en:'A survey of five classes of obstructions in the module theory of the small quantum group. Discussion is in private mode: commentator-block collaboration; regular users cannot comment or submit PRs; the article and versions always stay public.'}}
+];
+const ISSUES=[
+ {id:'i1',title:{zh:'单位根处仿射 Hecke 代数的不可分解表示分类，是否等价于 q-Schur 代数在对应参数下的单模分类？',en:'Is the classification of indecomposable representations of affine Hecke algebras at roots of unity equivalent to the simple-module classification of the corresponding q-Schur algebra?'},body:{zh:'已知：Ariki 的 categorification 给出单模分类的抽象刻画；缺口：q 为根单位时 Hecke 代数非半单，需要把 Ariki–Mathas 定理延拓到分解态射非单射的情形。已排除：直接用 LLT 算法（不适用于该参数带）。',en:'Known: Ariki’s categorification gives an abstract classification of simples; gap: at roots of unity the Hecke algebra is not semisimple, so the Ariki–Mathas theorem must be extended to the case where the decomposition morphism is not injective. Ruled out: the LLT algorithm directly (inapplicable in this parameter range).'},who:'liu',tag:{zh:'学生',en:'Student'},conj:'',stars:34,date:'2026-09-06',takers:[{by:'chen',conf:7},{by:'wang',conf:4}],ai:{rec:true,summary:{zh:'与「q-Schur 代数单模分类」簇重复度高 → 推荐本条：含公式、文献线索与已排除思路，为该簇中表述最清楚、最完整、最数学化的提交。',en:'High overlap with the q-Schur-algebra simple-module classification cluster → recommended: contains formulas, literature leads and ruled-out approaches; the clearest, most complete, most mathematical submission in that cluster.'},merged:[{zh:'同一问题的另外 2 条提交（表述较简略）已归并至本条之下',en:'Two other submissions of the same problem (less detailed) merged under this one'}]}},
+ {id:'i2',title:{zh:'Yangian Y(gl₂) 的有限维不可分解模在 t = −1 处的退化了什么？',en:'What degenerates in finite-dimensional indecomposable Y(gl₂)-modules at t = −1?'},body:{zh:'在 t→−1 的极限下，Shapovalov 形式出现 Springer 项；想理解哪些不可分解模在这一极限坍缩成同一个对象。',en:'In the t→−1 limit the Shapovalov form picks up Springer terms; I want to understand which indecomposable modules collapse to the same object in this limit.'},who:'rao',tag:{zh:'评论员',en:'Commentator'},conj:'',stars:51,date:'2026-09-04',takers:[{by:'liu',conf:6}],ai:{rec:false,summary:{zh:'独立簇 · 询问 t=−1 极限下不可分解模的坍缩现象与 Springer 项的关系。',en:'Standalone cluster · asks how the collapse of indecomposable modules in the t=−1 limit relates to Springer terms.'},merged:[]}},
+ {id:'i3',title:{zh:'小量子群上投射模的诱导分解何时封闭？（仓库 #sqg 私密区块的公开镜像）',en:'When is Ind–res closed for projective modules over the small quantum group? (public mirror of the private block of repo #sqg)'},body:{zh:'sqg 仓库评论员区块正在私密合作，此条为对外公开的镜像问题：希望找到使 Ind(res(P)) 保持投射性的充分条件。',en:'The commentator block of repo sqg is collaborating privately; this is the public mirror question: find sufficient conditions for Ind(res(P)) to stay projective.'},who:'wang',tag:{zh:'研究生',en:'Grad student'},conj:'',stars:12,date:'2026-09-09',takers:[{by:'rao',conf:8},{by:'liu',conf:5}],ai:{rec:false,summary:{zh:'与仓库 #sqg 关联 · 私密区块阻塞点的公开镜像（链式跟进：广场 ⇆ 仓库）。',en:'Linked to repo #sqg · public mirror of the private block’s obstructions (chained follow-up: plaza ⇆ repo).'},merged:[]}},
+ {id:'i4',title:{zh:'请证明所有有限群都是可解的',en:'Please prove that all finite groups are solvable'},who:'u9527',tag:{zh:'普通用户',en:'Regular user'},conj:'',stars:0,date:'2026-09-08',blocked:true,ai:{rec:false,summary:{zh:'⛔ 已拦截：命中课本已知定理库（该陈述为教科书内容，且为假命题——A₅ 不可解）。拦截不判断观点，仅匹配既有数学事实。',en:'⛔ Blocked: matched the textbook known-theorems corpus (the statement is textbook material, and also false — A₅ is not solvable). Interception judges no opinions; it only matches established mathematical facts.'},merged:[]}},
+ {id:'i5',title:{zh:'黎曼猜想现在解决了吗？',en:'Has the Riemann Hypothesis been solved yet?'},who:'u9527',tag:{zh:'普通用户',en:'Regular user'},conj:'',stars:0,date:'2026-09-09',blocked:true,ai:{rec:false,summary:{zh:'⛔ 查重命中：系统检索到该问题尚未被解决，但检测到 30 天内已有 3 条等价提交——按限流规则对该账户降频。既有经典猜想须注明猜想者：Riemann（1859）。',en:'⛔ Dedup hit: the system retrieved that the problem remains unsolved, and detected 3 equivalent submissions within 30 days — the account is rate-limited accordingly. Classical conjectures must name the conjecturer: Riemann (1859).'},merged:[]}}
+];
+/* ================== Persistence (localStorage) ================== */
+const LS='sicmhub_state_v3';
+let S=JSON.parse(localStorage.getItem(LS)||'{}');
+S.lang=S.lang||'en';S.cur=S.cur||'liu';
+S.newIssues=S.newIssues||[];S.prStatus=S.prStatus||{};S.comments=S.comments||{};S.private=S.private||{};S.newRepos=S.newRepos||[];S.stars=S.stars||{};S.takes=S.takes||{};S.repoIssues=S.repoIssues||{};{const _d=new Date().toISOString().slice(0,10);S.cp=S.cp&&S.cp.day===_d?S.cp:{day:_d,n:0};}
+function save(){localStorage.setItem(LS,JSON.stringify(S));}
+function allRepos(){return [...S.newRepos,...REPOS];}
+function getRepo(id){return allRepos().find(r=>r.id===id);}
+function prStatus(r,pr){return S.prStatus[r.id+pr.id]||pr.status;}
+function repoDiscussion(r){return S.private[r.id]||r.discussion;}
+function repoComments(r){return [...(S.comments[r.id]||[]),...r.comments];}
+function allIssues(){return [...S.newIssues,...ISSUES];}
+/* ================== Utils & i18n helpers ================== */
+const d=v=>v&&typeof v==='object'?(S.lang in v?v[S.lang]:v.en):(v==null?'':v);
+const E=()=>S.lang==='en';
+const isCm=()=>/Commentator|评论员/.test(d(USERS[S.cur].role));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.style.display='block';clearTimeout(t._x);t._x=setTimeout(()=>t.style.display='none',3000);}
+function render(){route();}
+function switchUser(k){S.cur=k;save();render();toast(E()?'Now viewing as '+d(USERS[k].name):'已切换为 '+d(USERS[k].name));}
+function toggleLang(){S.lang=E()?'zh':'en';save();render();}
+function avatar(u,sz=32){const u2=USERS[u]||{init:(u[0]||'?')};const bg={liu:'linear-gradient(135deg,#534AB7,#185FA5)',chen:'#534AB7',rao:'#0F6E56',petrov:'#185FA5',wang:'#0F6E56',u9527:'#888780',kong:'#854F0B'}[u]||'#888780';return `<div class="avatar" style="width:${sz}px;height:${sz}px;font-size:${sz/2.4}px;background:${bg}" onclick="location.hash='#/user/${u}'">${esc(u2.init)}</div>`;}
+function userLine(u,extra=''){const u2=USERS[u]||{name:u,role:{zh:'普通用户',en:'Regular user'},badge:'p-gray'};return `<b style="font-size:14.5px">${esc(d(u2.name))}</b> <span class="pill ${u2.badge}">${esc(d(u2.role))}</span> ${extra}`;}
+function typeClass(t){return{full:'p-green',partial:'p-teal',framework:'p-blue',problem:'p-amber'}[t]||'p-gray';}
+function checkBadges(r){
+  const e=E(),b=[];
+  if(r.check.lean==='pass')b.push(`<span class="pill p-green">✓ ${e?'Lean Check passed':'Lean Check 通过'}</span>`);
+  if(r.check.lean==='fail')b.push(`<span class="pill p-red">✗ ${e?'Failed Lean Check':'未通过 Lean Check'}</span>`);
+  if(r.check.lean==='tech')b.push(`<span class="pill p-gray">${e?'Lean: transpilation failed · technical failure (not rejected)':'Lean：转译失败 · 技术性失败（不停发）'}</span>`);
+  if(r.check.l2==='A')b.push('<span class="pill p-green">L2 · A</span>');
+  if(r.check.l2==='B')b.push(`<span class="pill p-amber">⚠ L2 · B ${e?'pending clarification':'级 待澄清'}</span>`);
+  if(r.check.l2==='C')b.push(`<span class="pill p-red">⚠ L2 · C ${e?'suspected substantive error (a flag, not a verdict)':'级 疑似实质错误（警示标识，非结论）'}</span>`);
+  if(r.check.exag)b.push(`<span class="pill p-amber">${e?'Wording-strength warning: consider "partially proved"':'措辞强度警示：建议 partially proved'}</span>`);
+  return b.join('');
+}
+function starBtn(r){const k=r.id,on=S.stars[k];return `<button class="btn small" onclick="star('${k}')">${on?'★':'☆'} ${E()?'Star':'加星'}</button>`;}
+function star(k){S.stars[k]=!S.stars[k];save();render();toast(S.stars[k]?(E()?`Starred — your weight ${USERS[S.cur].weight} counts into the queue score`:`已加星（你的身份权重 ${USERS[S.cur].weight} 计入排队分）`):(E()?'Star removed':'已取消加星'));}
+/* ================== Nav (identity switcher + language toggle) ================== */
+function renderNav(){
+  const e=E();
+  document.getElementById('topnav').innerHTML=`
+  <div class="logo" onclick="location.hash='#/'">SICM <span>HUB</span></div>
+  <button class="nav-btn" data-nav="home" onclick="location.hash='#/'">${e?'Home':'首页'}</button>
+  <button class="nav-btn" data-nav="repos" onclick="location.hash='#/repos'">${e?'Repos':'仓库'}</button>
+  <button class="nav-btn" data-nav="issues" onclick="location.hash='#/issues'">${e?'Problems':'问题广场'}</button>
+  <button class="nav-btn" data-nav="submit" onclick="location.hash='#/submit'">${e?'Submit':'投稿'}</button>
+  <button class="nav-btn" data-nav="commentators" onclick="location.hash='#/commentators'">${e?'Commentators':'评论员'}</button>
+  <button class="nav-btn" data-nav="about" onclick="location.hash='#/about'">${e?'Mechanics':'平台机制'}</button>
+  <div class="spacer"></div>
+  <button class="copilot-btn" onclick="toggleCopilot(true)">✦ Copilot</button>
+  <button class="lang-btn" onclick="toggleLang()" title="Language">${e?'中文':'EN'}</button>
+  <select id="cur-user" class="usersel" onchange="switchUser(this.value)" title="${e?'Switch identity — each role sees a different interface':'切换身份——不同角色看到的界面不同'}">${Object.entries(USERS).map(([k,u])=>`<option value="${k}" ${k===S.cur?'selected':''}>${esc(d(u.name))}</option>`).join('')}</select>
+  ${avatar(S.cur,32)}`;
+  document.getElementById('cp-head').innerHTML=`<b>✦ SICM Copilot</b> <span class="pill p-purple" id="cp-quota" style="font-size:11px"></span><button class="close" onclick="toggleCopilot(false)">×</button>`;
+  document.getElementById('cp-q').placeholder=e?'Search articles or problems… (natural language)':'搜索文章或问题…（支持自然语言）';
+  document.getElementById('cp-hint').innerHTML=e?'<p class="small muted">Try: "center", "partial solution", "open conjecture", "Yangian"</p>':'<p class="small muted">试试：「中心」「部分解决」「未解决的猜想」「Yangian」</p>';
+  document.getElementById('cp-be').innerHTML=`<span class="tag-be">${e?'BACKEND':'后端机制'}</span>${e?'<b>Precise theorem-level search</b> via <code>search-service</code>: statement index over every article’s theorem statements (incl. Lean) and all public problems, hybrid keyword reranking; results jump straight to repos / problem cards. Quota: regular 10 / day · edu-verified 30 / day · professors & commentators unlimited — a perk tied to contributing your work to the platform dataset.':'<b>定理级精确检索</b>：<code>search-service</code> 对全部文章的定理陈述（含 Lean）与全部公开问题建陈述索引，混合关键词重排；结果直达仓库 / 问题卡片。额度：普通 10 次/天 · 教育认证 30 次/天 · 教授与评论员不限——与向平台贡献数据集对应的权益。'}`;
+  updCpQuota();
+  document.documentElement.lang=e?'en':'zh-CN';
+  document.title=e?'SICM HUB — Mathematical results for the AI era':'SICM HUB — AI 时代的数学成果平台';
+}
+/* ================== Routing ================== */
+function route(){
+  renderNav();
+  const h=location.hash||'#/';
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  let m;
+  if(h==='#/'||h==='#'){renderHome();nav('home');}
+  else if(h==='#/repos'){renderRepos();nav('repos');}
+  else if(m=h.match(/^#\/repo\/(\w+)/)){renderRepo(m[1]);nav('repos');}
+  else if(h==='#/issues'){renderIssues();nav('issues');}
+  else if(h==='#/submit'){renderSubmit();nav('submit');}
+  else if(h==='#/commentators'){renderCommentators();nav('commentators');}
+  else if(m=h.match(/^#\/user\/(\w+)/)){renderUser(m[1]);nav('');}
+  else if(h==='#/about'){renderAbout();nav('about');}
+  else {renderHome();nav('home');}
+  window.scrollTo(0,0);
+}
+function nav(v){const b=document.querySelector(`.nav-btn[data-nav="${v}"]`);if(b)b.classList.add('active');}
+window.addEventListener('hashchange',route);
+/* ================== Home ================== */
+function renderHome(){
+  const e=E(),rs=allRepos();
+  const steps=e?[
+    ['Submit & scan','SimHash fingerprints + account-graph interception of reposts and multi-accounts — the only rejection gate'],
+    ['Three-layer check','Language / semantics / Lean — flagged, never rejected; color-graded'],
+    ['Listed as a repo','Type tag at the most prominent position; versions coexist forever'],
+    ['Commentators explain','Pure-AI articles first: complete human explanation · video / article + problem box · chained follow-up'],
+    ['PR evolution','Anyone can correct; after approval it merges as a branch and the contributor joins the authors']
+  ]:[
+    ['提交即扫描','SimHash 指纹 + 账户图谱拦截重投与多号——唯一的拒绝门'],
+    ['三层 check','语言 / 语义 / Lean——只标识不拒绝，颜色分级'],
+    ['上架仓库','类型标签最显眼，版本永久共存'],
+    ['评论员解释','纯 AI 文章优先获得完整人类解释 · 视频/文章 + 问题 box · 链式跟进'],
+    ['PR 演进','全员可更正，批准后合入分支并加入作者行列']
+  ];
+  document.getElementById('app').innerHTML=`
+  <div class="page active">
+    <h1>${e?'Let AI accelerate mathematics, let mathematicians own the narrative':'让 AI 加速数学，让数学家掌控脉络'}</h1>
+    <div class="sub">${e?'Three-layer AI pre-check · graded publication · commentator human explanations · Git-style repo collaboration · open problem loop · Copilot theorem-level search':'三层 AI 预检 · 分级放行 · 评论员完整人类解释 · Git 式仓库协作 · 开放问题循环 · Copilot 定理级检索'}</div>
+    <h2>${e?'Latest repos':'最新仓库'}</h2>
+    <div class="grid g3">${rs.slice(0,6).map(repoCard).join('')}</div>
+    <h2>${e?'How the platform works':'平台如何运转'}</h2>
+    <div class="steps">${steps.map((s,i)=>`<div class="step"><div class="n">${i+1}</div><b>${s[0]}</b><p class="small muted">${s[1]}</p></div>`).join('')}</div>
+    <h2>${e?'Featured problems':'问题广场精选'}</h2>
+    <div class="grid g2">${allIssues().filter(i=>!i.blocked).slice(0,2).map(issueCard).join('')}</div>
+    ${workspaceHTML()}
+    <div class="be"><span class="tag-be">${e?'BACKEND':'后端机制'}</span><b>${e?'Full front end with built-in sample projects':'本站为完整前端 + 内置示例项目'}</b>${e?': repo / problem / user data layers over the sample DATASET plus <code>localStorage</code> persistence (issues you post, PRs you approve and repos you publish survive refresh). To connect a real backend, swap the data-layer functions (<code>allRepos / allIssues / prStatus …</code>) for API calls — zero page-logic changes.':': 仓库 / 问题 / 用户数据在 <code>DATASET</code>（示例）之上叠加 <code>localStorage</code> 持久化（你发布的 issue、批准的 PR、新增仓库刷新后仍在）。接真实后端时，把数据层函数（<code>allRepos / allIssues / prStatus …</code>）替换为 API 调用即可，页面逻辑零改动。'}</div>
+  </div>`;
+}
+/* ================== Role-differentiated workspace (home) ================== */
+function workspaceHTML(){
+  const e=E(),u=USERS[S.cur];
+  if(isCm()){
+    const q=allRepos().filter(r=>{const f=USERS[S.cur].field||'*';return f==='*'||repoField(r)===f;}).sort((a,b)=>(b.ai==='pure')-(a.ai==='pure')||b.score-a.score).slice(0,4);
+    const pend=allRepos().flatMap(r=>r.prs.filter(p=>prStatus(r,p)==='pending').map(p=>({r,p})));
+    return `<h2>${e?'My commentator workbench':'我的评论员工作台'}</h2><div class="grid g2">
+      <div class="card"><h3 style="margin-top:0">${e?'Dispatch queue (prioritized for your field)':'推送队列（按你的方向排好优先级）'}</h3>
+        ${q.map(r=>`<div class="ai-item"><a onclick="location.hash='#/repo/${r.id}'">${esc(d(r.title))}</a><br><span class="small muted">${e?'queue score':'排队分'} ${r.score} · 🔥 ${(r.score/10)|0}${r.check.exag?' · ⚠ '+(e?'exaggeration flag':'夸大警示'):''}${r.ai==='pure'?' · 🤖 '+(e?'pure AI · needs human explanation':'纯 AI · 待人类解释'):''}</span></div>`).join('')}
+        <p class="small muted">🔒 ${e?'Heat is confidential backend data — same-field commentators only (NDA). Cross-field queries are rejected at the service layer and audited.':'热度为后台保密数据——仅本方向评论员可见（NDA）。跨方向查询在服务层拒绝并留审计日志。'}</p></div>
+      <div class="card"><h3 style="margin-top:0">${e?'PRs awaiting approval (you may approve any)':'待批准的 PR（你可批准任意仓库的 PR）'}</h3>
+        ${pend.length?pend.map(({r,p})=>`<div class="ai-item"><a onclick="location.hash='#/repo/${r.id}'">${r.id} · PR ${p.id} — ${esc(d(p.title))}</a><br><span class="small muted">${e?'by':'提交人'} ${esc(d(USERS[p.by]?USERS[p.by].name:p.by))}</span></div>`).join(''):`<p class="small muted">${e?'Nothing pending right now.':'暂无待批准的 PR。'}</p>`}
+        <p class="small muted">${e?'Approval rights: repo authors or any commentator.':'批准权：仓库作者或任一评论员。'}</p></div>
+    </div>`;
+  }
+  if(S.cur==='u9527'){
+    return `<h2>${e?'My workspace':'我的工作台'}</h2>
+    <div class="card b-red"><h3 style="margin-top:0">⛔ ${e?'Account under rate-limiting':'账户限流中'}</h3>
+      <p class="small">${e?'2 interception records in the last 30 days (textbook-theorem hit + duplicate classic conjecture). Publishing quota reduced to 1 per 3 days; the AI-to-Lean translation service is disabled on this tier — you can still upload your own Lean code. Appeals go through the human review channel.':'近 30 天内 2 次拦截记录（课本定理命中 + 重复经典猜想）。发布额度降为每 3 天 1 条；当前档位停用 AI 转 Lean 服务——仍可自行上传 Lean 代码。申诉走人工通道。'}</p>
+      <p class="small" style="margin-top:8px">✦ Copilot ${e?'searches today':'检索（今日）'} <b>${Math.min(S.cp.n,cpLimit())} / ${cpLimit()}</b> — ${e?'precise theorem-level search over all articles & public problems':'对全部文章与公开问题的定理级精确检索'}</p>
+      <button class="btn small" onclick="toast('${e?'Appeal submitted — human review within 5 working days (demo)':'申诉已提交——人工审核 5 个工作日内（演示）'}')">${e?'Appeal':'提交申诉'}</button></div>`;
+  }
+  const my=allRepos().filter(r=>r.authors.includes(S.cur)||r.contributors.includes(S.cur));
+  return `<h2>${e?'My workspace':'我的工作台'}</h2><div class="grid g2">
+    <div class="card"><h3 style="margin-top:0">${e?'My entitlements':'我的权益'}</h3>
+      <p class="small">${e?'Star weight':'star 权重'} <b>${u.weight}</b> · ${e?'AI-to-Lean quota':'AI 转 Lean 额度'} <b>${e?'1 / month':'每月 1 次'}</b> · Copilot <b>${u.cpq===Infinity?(e?'unlimited':'不限'):(e?u.cpq+' / day':'每天 '+u.cpq+' 次')}</b></p>
+      <p class="small muted">${e?'Quota refunds automatically on technical failure. Edu-email verification plus ORCID can raise your tier.':'技术性失败自动退还额度。教育邮箱认证 + ORCID 可提升档位。'}</p></div>
+    <div class="card"><h3 style="margin-top:0">${e?'My repos & PRs':'我的仓库与 PR'}</h3>
+      ${my.map(r=>`<div class="ai-item"><a onclick="location.hash='#/repo/${r.id}'">${esc(d(r.title))}</a><br><span class="small muted">${r.authors.includes(S.cur)?(e?'author':'持有人'):(e?'contributor':'贡献者')} · ${r.prs.length} PR</span></div>`).join('')||`<p class="small muted">—</p>`}</div>
+  </div>`;
+}
+function repoCard(r){
+  const e=E();
+  return `<div class="card ${r.check.lean==='pass'?'b-green':r.check.lean==='fail'?'b-red':r.check.l2==='B'||r.check.exag?'b-yellow':'b-gray'}" style="cursor:pointer" onclick="location.hash='#/repo/${r.id}'">
+    <span class="type-tag ${typeClass(r.type)}" style="font-size:14px;padding:3px 12px">${esc(d(TYPE_LABEL[r.type]||r.type))}</span>
+    ${r.ai==='pure'?`<span class="pill p-purple" style="margin-left:6px">🤖 ${e?'Pure AI · needs human explanation':'纯 AI · 待人类解释'}</span>`:''}
+    ${repoDiscussion(r)==='private'?`<span class="pill p-amber" style="margin-left:6px">🔒 ${e?'Private discussion':'私密讨论中'}</span>`:''}
+    ${r.closed?`<span class="pill p-gray" style="margin-left:6px">${e?'Closed · co-signed publication':'已关闭 · 共同署名发表'}</span>`:''}
+    <h3 style="margin:8px 0 4px;font-size:15px">${esc(d(r.title))}</h3>
+    <div class="small muted">${esc(d(r.msc))}</div>
+    <div class="badge-row">${checkBadges(r)}</div>
+    ${isCm()?`<div class="small" style="margin-top:6px">🔥 ${e?'heat':'热度'} <b>${(r.score/10)|0}</b> <span class="pill p-amber">NDA</span></div>`:''}
+    <p class="small muted" style="margin-top:8px">${e?'versions':'版本'} ${r.versions.length} · PR ${r.prs.length}${heatVisible(r)?` · 🔥 ${((r.score/10)|0)} · ${e?'queue score':'排队分'} ${r.score}`:` · 🔒 ${e?'engagement data backend-only':'互动数据仅后台可见'}`}</p>
+  </div>`;
+}
+/* ================== Repo list ================== */
+let repoFilter={type:'all',check:'all'};
+function renderRepos(){
+  const e=E(),rs=allRepos();
+  const types=['all','full','partial','framework'];
+  const checks=[['all','All','全部'],['leanpass','Lean passed','Lean 通过'],['leanfail','Lean failed','未通过 Lean'],['l2b','Grade B pending','待澄清 B 级'],['tech','Transpile failed','转译失败']];
+  const match=r=>{
+    if(repoFilter.type!=='all'&&r.type!==repoFilter.type)return false;
+    if(repoFilter.check==='leanpass'&&r.check.lean!=='pass')return false;
+    if(repoFilter.check==='leanfail'&&r.check.lean!=='fail')return false;
+    if(repoFilter.check==='l2b'&&r.check.l2!=='B')return false;
+    if(repoFilter.check==='tech'&&r.check.lean!=='tech')return false;
+    return true;};
+  document.getElementById('app').innerHTML=`<div class="page active">
+    <h1>${e?'Repositories':'仓库'}</h1><div class="sub">${e?'Filter by type tag → filter by check badges → open a repo':'类型标签筛选 → check 标识筛选 → 点击进入仓库详情'}</div>
+    <div class="filter">${types.map(t=>`<span class="pill ${typeClass(t==='all'?'':t)} ${repoFilter.type===t?'on':''}" onclick="repoFilter.type='${t}';renderRepos()">${t==='all'?(e?'All':'全部'):esc(d(TYPE_LABEL[t]))}</span>`).join('')}
+    <span style="width:14px"></span>${checks.map(c=>`<span class="pill ${repoFilter.check===c[0]?'on p-purple':'p-gray'}" onclick="repoFilter.check='${c[0]}';renderRepos()">${e?c[1]:c[2]}</span>`).join('')}</div>
+    <div class="grid g2">${rs.filter(match).map(repoCard).join('')||`<p class="muted">${e?'No repos under this filter.':'该筛选下暂无仓库。'}</p>`}</div>
+    <div class="be"><span class="tag-be">${e?'BACKEND':'后端机制'}</span>${e?'List served by <code>repo-service</code> (PostgreSQL: metadata / version tree / collaborators / check outcomes); filtering runs server-side with pagination — here it is front-end full filtering.':'列表来自 <code>repo-service</code>（PostgreSQL：元数据 / 版本树 / 协作者 / check 结论）；筛选在服务端分页执行，此处为前端全量过滤。'}</div>
+  </div>`;
+}
+/* ================== Repo detail (v2.6 · embedded reader first · issue board · paper article cards) ================== */
+const PLAY={};
+let CURPAGES=[],VIEW={id:'',page:0,z:1};
+function fmtT(s){s=Math.floor(s);return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');}
+function vToggle(cid,sec){
+  const p=PLAY[cid]||(PLAY[cid]={t:0,iv:null});
+  const stage=document.getElementById('vs-'+cid),big=document.getElementById('vb-'+cid);
+  if(!stage||!big)return;
+  if(p.iv){clearInterval(p.iv);p.iv=null;stage.classList.remove('playing');big.textContent='▶';return;}
+  if(p.t>=sec-1)p.t=0;
+  stage.classList.add('playing');big.textContent='❚❚';
+  p.iv=setInterval(()=>{
+    if(!document.getElementById('vs-'+cid)){clearInterval(p.iv);p.iv=null;return;}
+    p.t=Math.min(sec,p.t+20);
+    const bar=document.getElementById('pb-'+cid),tc=document.getElementById('tc-'+cid);
+    if(bar)bar.style.width=(100*p.t/sec).toFixed(1)+'%';
+    if(tc)tc.textContent=fmtT(p.t)+' / '+fmtT(sec);
+    if(p.t>=sec){clearInterval(p.iv);p.iv=null;stage.classList.remove('playing');big.textContent='↻';}
+  },400);
+}
+function waveBars(){let s='';for(let i=0;i<18;i++)s+='<i style="animation-delay:'+(i*0.06).toFixed(2)+'s;animation-duration:'+(0.6+(i%5)*0.14).toFixed(2)+'s"></i>';return s;}
+function avExpand(el){el.classList.toggle('open');}
+const THEOREMS={
+ yang:{thms:[
+  {tag:{en:'Theorem 2.7',zh:'定理 2.7'},lean:1,body:{en:'Let Y<sub>n</sub><sup>f</sup>(𝔤) be the finite-order Yangian. For every involutive diagram automorphism θ, the construction of §2 yields a family of solutions of the reflection equation K₁(t)R₂₁(u−t)K₂(t)R₁₂(u−t) = R₂₁(−u−t)K₁(t)R₁₂(u−t)K₂(t), polynomial in the spectral parameter.',zh:'设 Y<sub>n</sub><sup>f</sup>(𝔤) 为有限阶 Yangian。对每个对合图自同构 θ，§2 的构造给出反射方程 K₁(t)R₂₁(u−t)K₂(t)R₁₂(u−t) = R₂₁(−u−t)K₁(t)R₁₂(u−t)K₂(t) 的一族解，且关于谱参数 t 为多项式。'}},
+  {tag:{en:'Proposition 5.3',zh:'命题 5.3'},lean:0,body:{en:'For type A the solutions of Theorem 2.7 specialize to Cherednik’s q-KZ commutative subalgebra; the type-B extension is left open.',zh:'对 type A，定理 2.7 的解特化为 Cherednik 的 q-KZ 交换子代数；B 型推广留作开放问题。'}}]},
+ center:{thms:[
+  {tag:{en:'Lemma 3.1',zh:'引理 3.1'},lean:0,body:{en:'The base change ⊗<sub>A</sub> → ⊗<sub>k</sub> of the Lusztig integral form is flat on cyclic modules; the detailed argument (mirroring Lusztig, Prop. 19.3.7) was merged in v3 via PR #12.',zh:'Lusztig 整形式的基变换 ⊗<sub>A</sub> → ⊗<sub>k</sub> 在循环模上平坦；详细论证（仿 Lusztig Prop. 19.3.7）已由 PR #12 合入 v3。'}},
+  {tag:{en:'Proposition 4.2',zh:'命题 4.2'},lean:0,body:{en:'For q of odd order ℓ, the center of U<sub>q</sub>(𝔰𝔩<sub>n</sub>) is a polynomial ring in Harish-Chandra-type parameters; the even-order case lies outside the scope of this version (narrowed per commentator Q2).',zh:'当 q 为奇数阶根 ℓ 时，U<sub>q</sub>(𝔰𝔩<sub>n</sub>) 的中心是 Harish-Chandra 型参数上的多项式环；偶数阶情形超出本版本范围（已按评论员 Q2 收窄）。'}}]},
+ duflo:{thms:[
+  {tag:{en:'Step I (formalized)',zh:'第一步（已形式化）'},lean:1,body:{en:'The deformation complex governing the classical Duflo comparison is formal over the Weyl algebra; this step compiles against Mathlib.',zh:'控制经典 Duflo 比较映射的形变复形在 Weyl 代数上是形式的；该步骤已通过 Mathlib 编译。'}},
+  {tag:{en:'Step II (open)',zh:'第二步（开放）'},lean:0,body:{en:'Lemma 3.4: the commutator expansion rests on an associativity identity that is not yet proved — the Lean diagnostic localizes the failure to line 47 of the proof script.',zh:'引理 3.4：交换子展开依赖一条尚未证明的结合律恒等式——Lean 诊断已把失败定位到证明脚本第 47 行。'}}]},
+ tropical:{thms:[
+  {tag:{en:'Theorem 1.1',zh:'定理 1.1'},lean:1,body:{en:'The equational theory of the tropical semiring (ℝ ∪ {−∞}, max, +) is decidable: there is an algorithm deciding, for every finite system of tropical identities, whether it holds over all tropical semirings.',zh:'热带半环 (ℝ ∪ {−∞}, max, +) 的等式理论可判定：存在算法，对任意有限组热带恒等式判定其是否在所有热带半环上成立。'}}]},
+ sqg:{thms:[
+  {tag:{en:'Theorem 3.1 (survey)',zh:'定理 3.1（综述）'},lean:0,body:{en:'Five classes of obstructions to projectivity over the small quantum group u<sub>q</sub>(𝔤) are catalogued; the sharpest is the failure of the tensor decomposition of induced modules to be closed under ⊗.',zh:'本文整理小量子群 u<sub>q</sub>(𝔤) 上投射性的五类阻塞点；最尖锐的一类是诱导模的张量分解在 ⊗ 下不封闭。'}}]}
+};
+function paperPages(r){
+  const e=E(),T0=THEOREMS[r.id];
+  const T=T0||{thms:[{tag:{en:'Main Theorem',zh:'主要定理'},lean:r.check.lean==='pass',body:(()=>{const a=r.abs||{};return{zh:esc(typeof a==='string'?a:a.zh||a.en||''),en:esc(typeof a==='string'?a:a.en||a.zh||'')};})()}]};
+  const authors=r.authors.map(u=>esc(d((USERS[u]||{name:u}).name))).join(', ');
+  const affils=[...new Set(r.authors.map(u=>esc(d((USERS[u]||{inst:'—'}).inst||'—'))))].join(' · ');
+  const mk=t=>t.lean?'<span class="leanok">✓ Lean · main.lean</span>':'';
+  const p1='<div class="pnum">'+(e?'Page 1 / 3':'第 1 页 / 共 3 页')+'</div>'
+    +'<h1 class="pt">'+esc(d(r.title))+'</h1>'
+    +'<div class="pau">'+authors+'</div>'
+    +'<div class="paf">'+affils+'</div><hr>'
+    +'<p><b>'+(e?'Abstract.':'摘要。')+'</b> <i>'+esc(d(r.abs))+'</i></p>'
+    +'<p class="paf">'+(e?'2020 Mathematics Subject Classification':'2020 数学学科分类')+'：'+esc(d(r.msc))+'</p>'
+    +'<h2>1. '+(e?'Introduction':'引言')+'</h2>'
+    +'<p>'+(e?'This article is maintained as a living repository on SICM HUB; the displayed version is '+r.versions[0].v+' ('+r.versions[0].date+'). Comments and pull requests are anchored to versions and evolve the text in branches.':'本文以活仓库形式维护于 SICM HUB，当前显示版本为 '+r.versions[0].v+'（'+r.versions[0].date+'）。评论与 PR 均锚定版本，经批准后以分支形式演进正文。')+'</p>'
+    +'<p>'+(e?'The full TeX source (main.tex) and, where applicable, the Lean 4 formalization (main.lean) ship with the repository; the embedded reader renders the compiled PDF.':'完整 TeX 源码（main.tex）与 Lean 4 形式化（如适用，main.lean）随仓库发布；内嵌阅读器渲染编译后的 PDF。')+'</p>';
+  const p2='<div class="pnum">'+(e?'Page 2 / 3':'第 2 页 / 共 3 页')+'</div>'
+    +'<h2>2. '+(e?'Main results':'主要结果')+'</h2>'
+    +T.thms.map(t=>'<div class="thm"><span class="tt">'+esc(d(t.tag))+'.</span> '+d(t.body)+mk(t)+'</div>').join('')
+    +'<h2>3. '+(e?'Remarks':'注记')+'</h2>'
+    +'<p>'+(e?'Version '+r.versions[0].v+' is the current head of the repository; all historical versions remain permanently visible.':'版本 '+r.versions[0].v+' 为仓库当前主线；全部历史版本永久保留、全员可见。')+'</p>';
+  const p3='<div class="pnum">'+(e?'Page 3 / 3':'第 3 页 / 共 3 页')+'</div>'
+    +'<h2>'+(e?'References':'参考文献')+'</h2>'
+    +'<ol class="refs"><li>V. G. Drinfeld, A new realization of Yangians and quantized affine algebras, Soviet Math. Dokl. 32 (1985), 212–216.</li><li>V. Cherednik, Factorizing particles on a quantum line and applications, Funct. Anal. Appl. 27 (1993), 240–246.</li><li>G. Lusztig, Introduction to Quantum Groups, Progress in Mathematics 110, Birkhäuser (1993).</li><li>S. Ariki, On the decomposition numbers of the Hecke algebra of G(m,1,n), J. Algebra 177 (1995), 384–401.</li></ol><hr>'
+    +'<p class="pnum" style="font-family:-apple-system,\'PingFang SC\',sans-serif">📎 main.tex'+(r.check.lean!=='tech'?' · main.lean (Lean 4 · Mathlib)':'')+' · '+(e?'compiled from the repository TeX source':'由仓库 TeX 源码编译')+'</p>';
+  return [p1,p2,p3];
+}
+function pdfNav(dv){VIEW.page=Math.max(0,Math.min(CURPAGES.length-1,VIEW.page+dv));paintPaper();}
+function pdfZoom(dz){VIEW.z=Math.max(0.7,Math.min(1.6,+(VIEW.z+dz).toFixed(2)));paintPaper();}
+function paintPaper(){
+  const paper=document.getElementById('pdf-paper');if(!paper)return;
+  paper.style.fontSize=(13.5*VIEW.z).toFixed(1)+'px';
+  paper.innerHTML=CURPAGES[VIEW.page]||'';
+  const pi=document.getElementById('pdf-ind');if(pi)pi.textContent=(VIEW.page+1)+' / '+CURPAGES.length;
+  const zi=document.getElementById('pdf-zind');if(zi)zi.textContent=Math.round(VIEW.z*100)+'%';
+  const bd=document.querySelector('.pdf-body');if(bd)bd.scrollTop=0;
+}
+function flash(el){if(!el)return;el.scrollIntoView({behavior:'smooth',block:'center'});el.style.transition='box-shadow .4s';el.style.boxShadow='0 0 0 3px var(--accent)';setTimeout(()=>{el.style.boxShadow='';},1400);}
+function gotoCmt(cid){flash(document.getElementById('cmt-'+cid));}
+function gotoIss(key){flash(document.getElementById('oi-'+key));}
+function repoIssues(r){return [...(S.repoIssues[r.id]||[]),...(r.issues||[])];}
+function issMerged(it){return /^已归并|^Merged/.test(d(it.ai&&it.ai.summary));}
+function publishRepoIssue(rid){
+  const t=document.getElementById('ri-t-'+rid),b=document.getElementById('ri-b-'+rid);
+  const tv=t&&t.value.trim();
+  if(!tv){toast(E()?'A title is required':'标题不能为空');return;}
+  const bv=b&&b.value.trim();
+  (S.repoIssues[rid]=S.repoIssues[rid]||[]).unshift({
+    by:S.cur,date:new Date().toISOString().slice(0,10),
+    title:{zh:tv,en:tv},body:{zh:bv||'—',en:bv||'—'},
+    ai:{summary:{zh:'实时摘要：'+tv+(bv?'——'+bv.slice(0,36)+'…':''),en:'Live summary: '+tv+(bv?' — '+bv.slice(0,36)+'…':'')},merged:[]}
+  });
+  save();render();
+  toast(E()?'Issue submitted — the AI panel summarizes it and links back to your post; nothing is omitted':'Issue 已提交——AI 整理展板将生成摘要并链接你的原帖，不遗漏任何条目');
+}
+function renderRepo(id){
+  const r=getRepo(id);if(!r){location.hash='#/repos';return;}
+  if(VIEW.id!==r.id)VIEW={id:r.id,page:0,z:1};
+  const e=E(),priv=repoDiscussion(r)==='private';
+  const isAuthor=r.authors.includes(S.cur),cm=isCm(),hv=heatVisible(r);
+  const canComment=!priv&&(r.contributors.includes(S.cur)||isAuthor);
+  const canApprove=isAuthor||cm;
+  const cmts=repoComments(r);
+  const prs=r.prs.map(p=>({...p,status:prStatus(r,p)}));
+  CURPAGES=paperPages(r);
+  const cmtHTML=cmts.map((c,ci)=>{
+    const cid=r.id+'c'+ci;
+    const isVid=/🎥/.test(d(c.media));
+    const dm=d(c.media).match(/(\d+):(\d+)/),sec=dm?(+dm[1])*60+(+dm[2]):600;
+    const body=esc(d(c.text)).replace(/\n/g,'<br>');
+    const head='<div class="who">'+avatar(c.by)+'<div>'+userLine(c.by)+'<br><span class="small muted">'+c.date+' · '+(e?'targeting':'针对')+' '+c.ver+' · '+esc(d(c.media))+'</span></div></div>';
+    const qh=c.qbox&&c.qbox.length?'<div class="qbox"><div class="qt">'+(e?'Problem box (simplified statements · open for adoption)':'问题 box（拟简表述 · 可接手）')+'</div>'+c.qbox.map(q=>{const s=d(q);const m=s.match(/^(Q\d+[^：:]*)([：:])([\s\S]*)$/);return m?'<b>'+esc(m[1])+':</b>'+esc(m[3]):esc(s);}).join('<br>')+'</div>':'';
+    const tail=(ci===cmts.length-1)?('<div class="comment-toggle">'
+      +'<a onclick="toggleCm(this)">▾ '+(e?'User comment section':'用户评论区')+'（'+(S.comments[r.id]||[]).length+' '+(e?'posts · only contributors and commentators may post · click to fold/unfold':'条 · 仅贡献者与评论员可发言 · 点击收起/展开')+'）</a>'
+      +'<div class="comment-body open">'
+      +(((S.comments[r.id]||[]).map(cc=>'<div class="comment">'+avatar(cc.by,28)+'<div>'+userLine(cc.by)+'<p class="small">'+esc(d(cc.text))+'</p></div></div>').join(''))||('<p class="small muted">'+(e?'No user comments yet.':'暂无用户评论。')+'</p>'))
+      +(canComment
+        ?('<textarea id="cm-input-'+r.id+'" placeholder="'+(e?'Post as':'以')+' '+esc(d(USERS[S.cur].name))+' '+(e?'…':'身份发言…')+'"></textarea><button class="btn small primary" style="margin-top:6px" onclick="postComment(\''+r.id+'\')">'+(e?'Post comment':'发布评论')+'</button>')
+        :('<p class="small muted">'+(priv?(e?'🔒 Private discussion: regular users cannot comment.':'🔒 私密讨论中，普通用户不可评论。'):(e?'Only repo contributors and commentators can comment; you can still participate by submitting a PR.':'只有仓库贡献者与评论员可以评论；你可以提交 PR 参与更正。'))+'</p>'))
+      +'</div></div>'):'';
+    if(isVid)return '<div class="card" id="cmt-'+cid+'" style="padding:0;overflow:hidden">'
+      +'<div class="vstage" id="vs-'+cid+'" onclick="vToggle(\''+cid+'\','+sec+')">'
+      +'<div class="vlive">● '+(e?'PLAYING':'播放中')+'</div>'
+      +'<div class="vtitle">'+esc(d(USERS[c.by]?USERS[c.by].name:c.by))+' · '+esc(d(c.media))+'</div>'
+      +'<div class="vbig" id="vb-'+cid+'">▶</div>'
+      +'<div class="wave">'+waveBars()+'</div>'
+      +'<div class="vbot"><div class="vbar"><i id="pb-'+cid+'"></i></div><span id="tc-'+cid+'">0:00 / '+fmtT(sec)+'</span></div>'
+      +'</div>'
+      +'<div style="padding:14px 18px 18px">'+head+'<p style="margin-top:4px">'+body+'</p>'+qh+tail+'</div></div>';
+    return '<div class="card" id="cmt-'+cid+'" style="padding:0;overflow:hidden">'
+      +'<div class="avhead">📄 '+esc(d(c.media))+' · '+(e?'commentator article · click to expand full height':'评论员文章 · 点击展开完整高度')+'</div>'
+      +'<div class="avwrap" onclick="avExpand(this)"><div class="avpage">'+body+'</div><div class="avfade">▾ '+(e?'Click to expand the full article':'点击展开完整文章')+'</div></div>'
+      +'<div style="padding:14px 18px 18px">'+head+qh+tail+'</div></div>';
+  }).join('');
+  const iss=repoIssues(r);
+  const officials=cmts.flatMap((c,ci)=>(c.qbox||[]).map(q=>({c,ci,txt:d(q)})));
+  const canIssue=!r.closed&&(!priv||(r.contributors.includes(S.cur)||isCm()));
+  const offHTML=officials.map(o=>{
+    const m=o.txt.match(/^(Q\d+[^：:]*)([：:])([\s\S]*)$/);
+    return '<div class="card" style="margin:0"><div class="small" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:4px"><span class="pill p-purple">'+(e?'Official-type':'官方型')+'</span><span class="muted">'+(e?'synced from the problem box of':'同步自')+' '+esc(d((USERS[o.c.by]||{name:o.c.by}).name))+' · '+(e?'targeting':'针对')+' '+o.c.ver+'</span></div>'
+      +'<b>'+(m?esc(m[1]):esc(o.txt.slice(0,40)))+'</b>'+(m?'<p class="small muted" style="margin:4px 0 8px">'+esc(m[3])+'</p>':'')
+      +'<button class="btn small" onclick="gotoCmt(\''+r.id+'c'+o.ci+'\')">↗ '+(e?'Open the source comment':'查看评论原帖')+'</button></div>';
+  }).join('');
+  const pubHTML=iss.map((it,ix)=>{
+    const merged=issMerged(it);
+    return '<div class="card'+(merged?' oi-merged':'')+'" id="oi-'+r.id+'-'+ix+'" style="margin:0 0 10px">'
+      +'<div class="small" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:4px">'+avatar(it.by,22)+'<b>'+esc(d((USERS[it.by]||{name:it.by}).name))+'</b><span class="muted">· '+it.date+'</span>'+(merged?'<span class="pill p-gray">'+(e?'merged into cluster':'已归并')+'</span>':'')+'</div>'
+      +'<b>'+esc(d(it.title))+'</b><p class="small muted" style="margin:4px 0 0">'+esc(d(it.body))+'</p></div>';
+  }).join('');
+  const issueForm=canIssue
+    ?'<div class="card" style="margin:0"><b>'+(e?'Submit a public issue':'提交公开 issue')+'</b><p class="small muted" style="margin:6px 0 10px">'+(e?'Open to all users: doubts, leads, improvement suggestions. The AI panel organizes but never judges.':'所有用户均可提交：疑问、疑点线索、改进建议。AI 只整理，不判断。')+'</p>'
+      +'<input id="ri-t-'+r.id+'" placeholder="'+(e?'Issue title':'issue 标题')+'" style="width:100%;box-sizing:border-box;margin-bottom:8px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:13.5px">'
+      +'<textarea id="ri-b-'+r.id+'" placeholder="'+(e?'Details (optional)':'详情（可选）')+'" style="width:100%;box-sizing:border-box;min-height:56px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:13.5px"></textarea>'
+      +'<button class="btn small primary" style="margin-top:8px" onclick="publishRepoIssue(\''+r.id+'\')">'+(e?'Submit issue':'提交 issue')+'</button></div>'
+    :(r.closed
+      ?'<div class="card" style="margin:0"><p class="small muted" style="margin:0">📦 '+(e?'Repo closed — the issue board is frozen as a public archive.':'仓库已关闭——issue 展板冻结为公开存档。')+'</p></div>'
+      :'<div class="card" style="margin:0"><p class="small muted" style="margin:0">🔒 '+(e?'Private mode: the public issue block is closed to regular users. Contributors and commentators may still submit.':'私密模式：公开 issue 区块对普通用户关闭。贡献者与评论员仍可提交。')+'</p></div>');
+  const primaries=iss.filter(it=>!issMerged(it)),mergeds=iss.filter(issMerged);
+  const aiHTML='<div class="card" style="margin:0"><div class="small" style="display:flex;gap:6px;align-items:center;margin-bottom:10px"><span class="pill p-purple">🤖 '+(e?'AI organize panel':'AI 整理展板')+'</span><span class="muted">'+(e?'issue-clustering service':'issue-clustering 服务')+'</span></div>'
+    +primaries.map(it=>{const oi=iss.indexOf(it);const mnote=(it.ai&&it.ai.merged||[]).map(mm=>'<p class="small muted" style="margin:4px 0 0">↳ '+esc(d(mm))+'</p>').join('');
+      return '<div style="border-left:3px solid var(--accent);padding:2px 0 2px 10px;margin-bottom:12px"><p class="small" style="margin:0 0 4px">'+esc(d(it.ai&&it.ai.summary))+'</p>'
+        +'<a class="small" style="cursor:pointer;color:var(--accent);font-weight:600" onclick="gotoIss(\''+r.id+'-'+oi+'\')">↗ '+(e?'source post':'原帖')+' · '+esc(String(d(it.title)).slice(0,26))+'…</a>'+mnote+'</div>';}).join('')
+    +mergeds.map(it=>{const oi=iss.indexOf(it);return '<div class="small muted" style="margin-bottom:6px">↳ <span class="pill p-gray" style="font-size:10px;padding:0 6px">'+(e?'merged':'已归并')+'</span> <a style="cursor:pointer;color:var(--muted)" onclick="gotoIss(\''+r.id+'-'+oi+'\')">'+esc(String(d(it.title)).slice(0,34))+'…</a></div>';}).join('')
+    +(iss.length?'':'<p class="small muted">'+(e?'No issues yet — everything submitted here will be summarized and linked, nothing is omitted.':'暂无 issue——此处的每一条提交都会被摘要并链接，不遗漏。')+'</p>')
+    +'<p class="small muted" style="margin:12px 0 0;border-top:1px solid var(--line);padding-top:10px"><b>'+('AI '+(e?'boundary: organizes only':'边界：只整理，不判断'))+'</b>'+(e?' — no evaluation, no deletion, no pre-review, no rewriting of views. Judgment stays with the commentators, the repo author and the community.':'——不评估合理性、不删除、不预审、不改写观点。判断权完全留给评论员、仓库作者与社区。')+'</p></div>';
+  const side=(r.ai==='pure'
+    ?'<div class="card" style="margin:0;border-color:var(--accent)"><b>🤖 '+(e?'Pure AI — author does not understand it':'纯 AI · 作者完全不理解')+'</b><p class="small muted" style="margin-top:6px">'+(e?'Declared at submission. Priority for commentators, who work <b>with AI</b> to deliver a complete human explanation of this article — translating, restructuring and verifying it for the community. Not a review verdict.':'投稿时声明。评论员优先处理：与 AI <b>合作</b>产出本文章的完整人类解释——为社区拆解、重构并验证。不是审稿裁决。')+'</p></div>'
+    :'<div class="card" style="margin:0"><b>✍ '+(e?'Author’s own article':'作者本人的文章')+'</b><p class="small muted" style="margin-top:6px">'+(e?'Unmarked default — written and fully understood by the submitter; no commentator is assigned (voluntary channel open, but uncommentated by design).':'默认不标注——由投稿人撰写并完全理解；不安排评论员（自愿通道保留，但不做安排）。')+'</p></div>')
+    +'<div class="card" style="margin:0"><b>'+(e?'Star & queue':'star 排队')+'</b><p>'+starBtn(r)+'</p>'
+    +(hv
+      ?'<p class="small muted">'+(e?'queue score':'排队分')+' '+r.score+'（Σ '+(e?'weight × time decay − anti-vote-manipulation':'身份权重 × 时间衰减 − 反刷票降权')+'）</p>'
+        +(hv==='field'
+          ?'<p class="small">🔥 '+(e?'7-day heat':'7 日热度')+' <b>'+((r.score/10)|0)+'</b> · '+(e?'field rank':'本方向排名')+' #'+(1+allRepos().filter(x=>x!==r&&x.msc===r.msc&&x.score>r.score).length)+' <span class="pill p-amber">NDA</span></p>'
+          :'<p class="small">🔥 '+(e?'your repo heat overview (backend data · own repos only)':'你的仓库热度概览（后台数据 · 仅自己仓库）')+' <b>'+((r.score/10)|0)+'</b></p>')
+      :'<p class="small muted">🔒 '+(e?'Stars, queue score and heat are backend-only: same-field commentators (NDA) and the repo author. Cross-field queries are refused at the service layer and audited.':'star、排队分与热度均为后台数据：仅本方向评论员（NDA）与仓库作者可见。跨方向查询在服务层拒绝并留审计日志。')+'</p>')
+    +'</div>'
+    +'<div class="card" style="margin:0"><b>'+(e?'Check badges':'check 标识')+'</b><div class="badge-row" style="margin-top:8px">'+checkBadges(r)+'</div>'
+    +(r.check.exag?'<p class="small muted" style="margin-top:8px">'+(e?'Wording-strength warning attached, with the AI comparison evidence.':'附 AI 比对依据的「措辞强度警示」。')+'</p>':'')
+    +'</div>'
+    +'<div class="card" style="margin:0"><b>'+(e?'Contributors / authors':'贡献者 / 作者')+'</b><div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px">'+r.contributors.map(u=>'<span title="'+esc(d(USERS[u]?USERS[u].name:u))+'">'+avatar(u,30)+'</span>').join('')+'</div></div>'
+    +'<div class="card" style="margin:0"><b>'+(e?'Versions':'版本')+'（'+(e?'coexist forever':'永久共存')+'）</b>'
+    +'<div class="timeline" style="margin:8px 0 0 6px">'+r.versions.map(v=>'<div class="tl-item"><b>'+v.v+'</b> · '+v.date+' '+(v.v===r.versions[0].v?'<span class="pill p-gray">'+(e?'current':'当前')+'</span>':'')+'<p class="small muted">'+esc(d(v.note))+'</p></div>').join('')+'</div></div>'
+    +'<div class="card" style="margin:0"><b>'+(e?'Discussion':'讨论区')+'</b>'
+    +'<div style="margin-top:8px"><span class="pill '+(priv?'p-amber':'p-green')+'">'+(priv?(e?'fully private':'完全私密'):(e?'public':'公开讨论'))+'</span>'
+    +(isAuthor?'<button class="btn small" style="margin-left:6px" onclick="togglePrivate(\''+r.id+'\')">'+(e?'Switch':'切换')+'</button>':'<span class="small muted"> · '+(e?'holder only':'仅持有人')+'</span>')+'</div>'
+    +'<p class="small muted" style="margin-top:6px">'+(e?'Private = commentator-block collaboration; the article and versions always stay public.':'私密 = 评论员区块合作；文章与版本始终公开。')+'</p></div>'
+    +'<div class="card" style="margin:0"><b>'+(e?'Actions':'操作')+'</b><div style="display:grid;gap:6px;margin-top:8px">'
+    +'<button class="btn small" '+(priv?'disabled':'')+' onclick="location.hash=\'#/submit\'">'+(e?'Submit a PR fix':'提交 PR 更正')+'</button>'
+    +(isAuthor&&r.check.lean==='pass'?'<button class="btn small" onclick="toast(\''+(e?'Lean source package downloaded — author-only entitlement after passing Lean Check':'Lean 源码包已下载——通过 Lean Check 后作者专属权益')+'\')">⬇ '+(e?'Lean source':'Lean 源码')+'</button>':'')
+    +'<button class="btn small" onclick="toast(\''+(e?'Notification sent to all contributors and commentators (demo)':'已向全体贡献者与评论员发起私聊/邮件通知（演示）')+'\')">'+(e?'Contact authors':'联系作者')+'</button></div>'
+    +'<p class="small muted" style="margin-top:8px">#SICM-2026-'+r.id.toUpperCase().slice(0,4)+' · DOI 10.sicm/2026.'+r.id.slice(0,4)+' · '+r.versions[0].v+'</p></div>';
+  document.getElementById('app').innerHTML=`<div class="page active">
+    ${r.closed?`<div class="close-banner"><b>📦 ${e?'Repo closed':'仓库已关闭'}</b> — ${esc(d(r.closedNote))}</div>`:''}
+    ${priv?`<div class="private-banner">🔒 <b>${e?'Private discussion':'私密讨论中'}</b> — ${e?'Commentator-block group collaboration: regular users cannot comment, cannot submit PRs, and the public issue block is closed to them. The article and versions always stay public.':'评论员区块群组式合作：普通用户不可评论、不可提交 PR、公开 issue 区块对其关闭。文章与版本始终公开。'}</div>`:''}
+    <div class="repo-head">
+      <span class="type-tag ${typeClass(r.type)}" style="font-size:14px;padding:3px 12px">${esc(d(TYPE_LABEL[r.type]||r.type))}</span>
+      <span class="pill p-purple">${esc(d(r.msc))}</span>
+      ${r.ai==='pure'?`<span class="pill p-purple">🤖 ${e?'Pure AI · needs human explanation':'纯 AI · 待人类解释'}</span>`:''}
+      ${r.closed?`<span class="pill p-gray">${e?'Closed':'已关闭'}</span>`:''}
+      <h1 style="font-size:19px;margin:0;flex-basis:100%">${esc(d(r.title))}</h1>
+    </div>
+    <div class="repo-layout">
+      <main style="min-width:0">
+        <div class="pdf-shell">
+          <div class="pdf-toolbar">
+            <button class="pbtn" onclick="pdfNav(-1)">◀</button><span class="pi" id="pdf-ind"></span><button class="pbtn" onclick="pdfNav(1)">▶</button>
+            <span style="width:10px"></span>
+            <button class="pbtn" onclick="pdfZoom(-0.1)">−</button><span class="pi" id="pdf-zind"></span><button class="pbtn" onclick="pdfZoom(0.1)">＋</button>
+            <span class="pi" style="margin-left:8px;text-align:left">main.tex → PDF${r.check.lean!=='tech'?' · main.lean':''}</span>
+            <div style="flex:1"></div>
+            <button class="pbtn" onclick="toast('${e?'PDF downloaded (demo)':'PDF 已下载（演示）'}')">⬇ PDF</button>
+          </div>
+          <div class="pdf-body"><div class="paper" id="pdf-paper"></div></div>
+        </div>
+        <h2 style="margin-top:26px">${r.ai==='pure'?(e?'Commentator human explanations':'评论员完整人类解释'):(e?'Commentator commentary':'评论员评论')}（${cmts.length}）</h2>
+        ${cmtHTML||`<div class="card"><p class="muted">${r.ai==='pure'?(e?'No commentator explanation yet — pure-AI articles are dispatched with priority.':'暂无评论员解释——纯 AI 文章优先推送中。'):(e?'No commentator commentary — author-own articles do not need commentators (the voluntary channel stays open, but none is assigned).':'暂无评论员评论——作者本人的文章无需评论员介入（自愿通道保留，但不做安排）。')}</p></div>`}
+        <div class="be"><span class="tag-be">${e?'BACKEND':'后端机制'}</span><b>${e?'Chained follow-up':'链式跟进'}</b>${e?': <code>followup-graph</code> turns problem-box entries into directed-graph nodes; successor comments link by Q-ID; the open-suspicion count = unresolved leaves, feeding commentator dispatch ranking. Comments are anchored to version hashes in <code>comment-service</code>.':'：<code>followup-graph</code> 把问题 box 条目作为有向图节点，后继评论引用 Q-ID 连边；「疑点未决数」= 未被满足的叶子数，参与评论员推送排序。评论以版本哈希锚定写入 <code>comment-service</code>。'}</div>
+        <h2>Pull Requests</h2>
+        <table class="t"><tr><th>PR</th><th>${e?'Proposal':'提议'}</th><th>${e?'Status':'状态'}</th><th>${e?'Actions':'操作'}</th></tr>
+        ${prs.map(p=>`<tr><td>${p.id}</td><td>${esc(d(p.title))}<br><span class="small muted">by ${esc(d(USERS[p.by]?USERS[p.by].name:p.by))}</span></td>
+          <td>${p.status==='merged'?`<span class="pill p-green">${e?'Merged · contributor joined the authors':'已合入 · 提交者已加入作者行列'}</span>`:p.status==='pending'?`<span class="pill p-blue">${e?'AI review passed · platform-visible · awaiting approval':'AI 审核通过 · 全平台可见 · 待批准'}</span>`:p.status==='approved'?`<span class="pill p-green">${e?'Approved ✓':'已批准 ✓'}</span>`:p.status==='rejected'?`<span class="pill p-gray">${e?'Rejected (reason public)':'已拒批（理由公开）'}</span>`:`<span class="pill p-gray">${e?'AI review in progress…':'AI 审核中…'}</span>`}</td>
+          <td>${p.status==='pending'?(canApprove?`<button class="btn small primary" onclick="decidePR('${r.id}','${p.id}',1)">${e?'Approve & merge':'批准合入'}</button> <button class="btn small" onclick="decidePR('${r.id}','${p.id}',0)">${e?'Reject':'拒批'}</button>`:`<span class="small muted">${e?'Approval: repo authors or any commentator':'批准权：仓库作者或任一评论员'}</span>`):'—'}</td></tr>`).join('')}
+        </table>
+        <div class="be"><span class="tag-be">${e?'BACKEND':'后端机制'}</span><b>${e?'PR pipeline':'PR 流水线'}</b>${e?': submit → incremental check on the diff only (<code>pipeline-orchestrator</code>) → platform-visible → approval (repo author <b>or any commentator</b>) → merge generates a new branch & version → <code>contributor-service</code> writes the merger into the author list.':': 提交 → <code>pipeline-orchestrator</code> 增量 check（只对 diff）→ 全平台可见 → 批准权（仓库作者 <b>或任一评论员</b>）→ 合入生成新分支与版本 → <code>contributor-service</code> 把合入者写入作者行列。'}</div>
+        <h2 style="margin-top:26px">Issue ${e?'board':'展板'}</h2>
+        <div class="issue-board">
+          <div style="min-width:0">
+            <h3 style="margin:0 0 4px;font-size:14.5px">① ${e?'Official-type issues':'官方型 issue'} <span class="pill p-purple" style="font-size:11px">${e?'commentator problem box · auto-synced':'评论员问题 box · 自动同步'}</span></h3>
+            <p class="small muted" style="margin:0 0 10px">${e?'Generated from the problem boxes of commentator comments, plus official discussions by the repo holder — the existing mechanism.':'由评论员评论的问题 box 自动生成，加上仓库持有人发布的官方讨论——沿用既有机制。'}</p>
+            <div class="ib-official">${offHTML||`<p class="small muted">${e?'None — no commentator is assigned to this repo (author-own article).':'暂无——本仓库未安排评论员（作者本人的文章）。'}</p>`}</div>
+            <h3 style="margin:20px 0 4px;font-size:14.5px">② ${e?'Public issue block':'公开 issue 区块'} <span class="pill p-green" style="font-size:11px">${e?'all users may submit':'所有用户均可提交'}</span></h3>
+            <p class="small muted" style="margin:0 0 10px">${e?'Doubts, leads and improvement suggestions from the whole community.':'来自社区全体用户的疑问、疑点线索与改进建议。'}</p>
+            ${pubHTML||`<p class="small muted">${e?'No public issues yet.':'暂无公开 issue。'}</p>`}
+            ${issueForm}
+          </div>
+          <aside class="ib-ai">${aiHTML}
+            <div class="be"><span class="tag-be">${e?'BACKEND':'后端机制'}</span><b>issue-clustering</b>${e?': every submission is embedded and clustered; the clearest, most complete, most mathematical phrasing of a cluster is recommended (pinned with its link), the rest are merged under it — links always point to the original posts, nothing is omitted, and the AI never judges content.':': 每条提交经嵌入聚类；AI 只推荐每簇中表述最清楚、最完整、最数学化的一条（置顶并链接），其余归并其下——链接始终指向原帖、不遗漏任何条目，且 AI 不做任何内容判断。'}</div>
+          </aside>
+        </div>
+      </main>
+      <aside class="repo-side">${side}</aside>
+    </div>
+  </div>`;
+  paintPaper();
+}
+
+function toggleCm(a){const b=a.nextElementSibling;b.classList.toggle('open');a.textContent=a.textContent.replace(/[▸▾]/,b.classList.contains('open')?'▾':'▸');}
+function decidePR(rid,pid,ok){
+  S.prStatus[rid+pid]=ok?'approved':'rejected';save();render();
+  toast(ok?(E()?'PR published as a repo branch — the contributor joins the author list (version +1)':'PR 已发布为仓库分支，提交者加入作者行列（版本 +1）'):(E()?'Rejected — the reason is publicly recorded':'已拒批，理由公开记录'));
+}
+function postComment(rid){
+  const v=document.getElementById('cm-input-'+rid).value.trim();if(!v)return;
+  (S.comments[rid]=S.comments[rid]||[]).unshift({by:S.cur,date:'2026-09-10',ver:E()?'current':'当前',media:E()?'💬 User comment':'💬 用户评论',text:v,qbox:[]});
+  save();render();toast(E()?'Comment posted (as your contributor/commentator identity)':'评论已发布（以你的贡献者/评论员身份）');
+}
+function togglePrivate(rid){
+  S.private[rid]=(S.private[rid]||getRepo(rid).discussion)==='private'?'public':'private';save();render();
+  toast(S.private[rid]==='private'?(E()?'Switched to fully private: commenting and PRs disabled for users; issue block closed':'已切换为完全私密：用户禁评论/禁 PR，issue 区块关闭'):(E()?'Discussion restored to public':'已恢复公开讨论'));
+}
+/* ================== Problem plaza ================== */
+function renderIssues(){
+  const e=E(),is=allIssues();
+  const limited=S.cur==='u9527';
+  document.getElementById('app').innerHTML=`<div class="page active">
+    <h1>${e?'Problem plaza':'问题广场'}</h1><div class="sub">${e?'Anyone may post mathematical problems · problems skip the three-layer check · automatic dedup before posting · pre-existing problems must name the conjecturer':'所有人可发布数学问题 · 问题不做三层 check · 发布前自动查重 · 既有问题须注明猜想者'}</div>
+    ${limited?`<div class="private-banner">⛔ ${e?'Rate-limited: 2 interception records within 30 days — your quota is 1 post per 3 days and it is used up for today.':'限流中：30 天内 2 次拦截记录——发布额度为每 3 天 1 条，今日额度已用尽。'} <a onclick="toast('${e?'Appeal submitted — human review within 5 working days (demo)':'申诉已提交——人工审核 5 个工作日内（演示）'}')">${e?'Appeal':'申诉'}</a></div>`:''}
+    <div class="issues-layout">
+      <div>
+        <div class="card">
+          <h3 style="margin-top:0">${e?'Post a new problem':'发布新问题'}</h3>
+          <label class="f">${e?'Problem title':'问题标题'}</label><input type="text" id="q-title" placeholder="${e?'e.g. simple-module classification of q-Schur algebras':'例如：q-Schur 代数在 p 模域上的单模分类'}">
+          <label class="f">${e?'Description (formulas allowed; state what is known, the goal, and ruled-out approaches)':'问题描述（可含公式；尽量给出已知、目标与已排除思路）'}</label><textarea id="q-body"></textarea>
+          <label class="f">${e?'Conjecturer (required if pre-existing; leave blank to claim originality)':'猜想者（若为既有问题必填；留空 = 声明为自己原创）'}</label><input type="text" id="q-conj" placeholder="${e?'e.g. Lusztig (1980)':'例如：Lusztig（1980）'}">
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+            <button class="btn primary" onclick="publishIssue()" ${limited?'disabled':''}>${e?'Publish':'发布'}</button>
+            <span class="small muted">${e?'Pipeline: solved-dedup → textbook-exercise interception → conjecturer validation → rate-limit check':'发布流水线：已解决查重 → 课本习题检测 → 猜想者校验 → 限流检查'}</span>
+          </div>
+          <div id="q-result"></div>
+          <div class="be"><span class="tag-be">${e?'BACKEND':'后端机制'}</span><b>${e?'Dedup':'查重'}</b>${e?': <code>problem-dedup</code> runs semantic vector search over the problem corpus + listed repo theorem statements; a hit on an already-solved problem blocks posting and pushes the corresponding article. <b>Exercise interception</b>: textbook-corpus classifier. <b>Rate limiting</b>: <code>rate-limiter</code> lowers frequency by historical quality signals (commentator adoption, engagement) — behavioral statistics, never opinions; appeal channel included.':': <code>problem-dedup</code> 在问题库 + 已上架仓库定理声明中做语义向量检索，命中已解决 → 拒绝发布并推送对应文章；<b>习题拦截</b>：教材语料分类器；<b>限流</b>：<code>rate-limiter</code> 按历史问题质量信号（评论员采纳率、互动率）调低频次——基于行为统计而非观点，附申诉通道。'}</div>
+        </div>
+        <div class="be"><span class="tag-be">${e?'BACKEND':'后端机制'}</span><b>${e?'Take button (v2.4)':'接手按钮（v2.4）'}</b>${e?': <code>take-service</code> records takes with self-rated confidence (1–10). Identities are stored encrypted and never exposed — only aggregates (taker count, confidence average) are public; no user can query who took a problem.':'：<code>take-service</code> 记录接手与自评把握度（1–10）。身份加密存储、绝不公开——仅聚合统计（接手人数、把握均值）全员可见；任何用户都无法查询接手者身份。'}</div>
+        <h2>${e?'Open problems':'未解决问题'}（${is.filter(i=>!i.blocked).length}）</h2>
+        <div class="grid g2">${is.filter(i=>!i.blocked).map(issueCard).join('')}</div>
+      </div>
+      <aside><div class="ai-panel">
+        <h3>✦ ${e?'AI curation board':'AI 整理展板'}</h3>
+        <p class="small muted">${e?'Aggregates all issues · curates only, judges no validity · for duplicates only the clearest, most complete, most mathematical phrasing is recommended':'汇总全部 issue · 只整理，不判断合理性 · 重复问题仅推荐表述最清楚、最完整、最数学化的一条'}</p>
+        <div>${is.map(i=>`<div class="ai-item ${i.ai.rec?'rec':''}">${i.blocked?`<b>⛔ ${e?'Blocked':'已拦截'}</b> · `:i.ai.rec?`<b>★ ${e?'Recommended':'推荐'}</b> · `:''}${esc(d(i.ai.summary))}<br><a onclick="toast((E()?'Jump to ':'跳转到 ')+esc(d(USERS[i.who]?USERS[i.who].name:i.who))+(E()?'\\u2019s original issue post (demo)':' 的 issue 原帖（演示）'))">${esc(d(USERS[i.who]?USERS[i.who].name:i.who))} ${e?'issue post ↗':'的 issue 帖 ↗'}</a>${(i.ai.merged||[]).map(m=>`<div class="merged">${esc(d(m))}</div>`).join('')}</div>`).join('')}</div>
+        <div class="be" style="margin-top:10px"><span class="tag-be">${e?'BACKEND':'后端机制'}</span><code>issue-clustering</code>${e?': new issue ingested → semantic clustering → per cluster, the best phrasing is picked by formalization + completeness score (<b>no truth judgment</b>) → summary & links written to the board.':': 新 issue 入库 → 语义聚类 → 每簇按「数学形式化程度 + 完整性」评分选最佳表述（<b>不做真伪判断</b>）→ 生成摘要与链接写入展板。'}</div>
+      </div></aside>
+    </div>
+  </div>`;
+}
+function repoField(r){const m=d(r.msc).match(/MSC\s*([0-9]{2}[A-Z]{0,2}[0-9]*)/);return m?m[1]:null;}
+function heatVisible(r){
+  if(r.authors.includes(S.cur))return 'own';
+  const u=USERS[S.cur];
+  if(isCm()&&(u.field==='*'||(u.field&&repoField(r)===u.field)))return 'field';
+  return false;
+}
+function takesOf(i){const mine=S.takes[i.id]||[];const sample=(i.takers||[]).filter(t=>!mine.some(m=>m.by===t.by));return [...sample,...mine];}
+function issueCard(i){
+  const e=E();
+  const ts=takesOf(i),mine=ts.find(t=>t.by===S.cur);
+  const avg=ts.length?(ts.reduce((a,t)=>a+t.conf,0)/ts.length).toFixed(1):null;
+  return `<div class="pcard">
+    <span class="pill p-amber">${esc(d(TYPE_LABEL.problem))}</span> ${i.conj?`<span class="pill p-purple">${e?'Conjecturer':'猜想者'}：${esc(i.conj)}</span>`:`<span class="pill p-gray">${e?'Original question':'原创提问'}</span>`}
+    <div class="title">${esc(d(i.title))}</div>
+    <div class="who">${avatar(i.who,28)}<div><b>${esc(d(USERS[i.who]?USERS[i.who].name:i.who))}</b> <span class="pill ${USERS[i.who]?USERS[i.who].badge:'p-gray'}">${esc(d(USERS[i.who]?USERS[i.who].role:i.tag))}</span><br><span class="small muted">${i.date}</span></div></div>
+    <p class="small">${esc(d(i.body).slice(0,90))}${d(i.body).length>90?'…':''}</p>
+    <div class="small muted"><a onclick="toast((E()?'AI summary: ':'AI 摘要：')+esc(d(i.ai.summary)))">${e?'AI summary ↗':'AI 摘要 ↗'}</a></div>
+    <div style="margin-top:10px;border-top:1px dashed var(--line);padding-top:9px">
+      <span class="pill p-teal">🙋 ${e?'taken by':'已接手'} ${ts.length} · ${e?'avg confidence':'平均把握'} ${avg||'—'}/10</span>
+      <span class="small muted" style="margin-left:4px">${e?'anonymous aggregate only':'匿名 · 仅聚合公开'}</span>
+      <div style="margin-top:7px">
+        ${mine?`<span class="pill p-green">${e?'You took this · confidence':'你已 take · 把握'} ${mine.conf}/10</span> <button class="btn small" onclick="tkSel('${i.id}')">${e?'Update':'修改'}</button>`:`<button class="btn small primary" onclick="tkSel('${i.id}')">🙋 ${e?'I have taken this problem':'我已经 take 这个问题'}</button>`}
+        <span id="tk-${i.id}" style="display:none;margin-left:6px">${Array.from({length:10},(_,k)=>`<button class="btn small" style="margin:2px;padding:2px 9px" onclick="saveTake('${i.id}',${k+1})">${k+1}</button>`).join('')}</span>
+      </div>
+    </div>
+  </div>`;
+}
+function tkSel(id){const el=document.getElementById('tk-'+id);if(el)el.style.display=el.style.display==='none'?'inline':'none';}
+function saveTake(id,conf){
+  S.takes[id]=S.takes[id]||[];S.takes[id]=S.takes[id].filter(t=>t.by!==S.cur);S.takes[id].push({by:S.cur,conf:+conf});save();render();
+  toast(E()?'Recorded: confidence '+conf+'/10 — your identity stays private; only the aggregate is public.':'已记录：把握 '+conf+'/10——身份保密，仅聚合统计对全员公开。');
+}
+function publishIssue(){
+  const e=E(),t=document.getElementById('q-title').value.trim(),c=document.getElementById('q-conj').value.trim(),b=document.getElementById('q-body').value.trim();
+  const out=document.getElementById('q-result');
+  if(!t){out.innerHTML=`<span class="pill p-red">${e?'Please enter a problem title':'请填写问题标题'}</span>`;return;}
+  if(/习题|exercise/i.test(t)){out.innerHTML=`<div class="qbox"><div class="qt">⛔ ${e?'Textbook-exercise interception':'课本习题拦截'}</div>${e?'This content matches the textbook exercise corpus and cannot be submitted.':'检测到该内容与教材习题库匹配，不予提交。'}</div>`;return;}
+  if(/黎曼猜想|riemann hypothesis/i.test(t)){out.innerHTML=`<div class="qbox"><div class="qt">📨 ${e?'Dedup notice: problem status retrieved':'查重通知：该问题状态检索完成'}</div>${e?'The system retrieved the latest literature in the field and sent the result to your notification center; 3 equivalent submissions exist within 30 days, so this post is withheld under the rate-limit rule.':'系统检索到对应领域最新文章，并将结果发送至你的账户通知中心；30 天内已有等价提交，按限流规则本次不予发布。'}<br><span class="small muted">${e?'Classical conjectures must name the conjecturer (Riemann, 1859) — first-claiming them under your own name is not allowed.':'既有经典猜想须注明猜想者（Riemann, 1859），不得以自己名义首发。'}</span></div>`;return;}
+  if(/猜想|conjecture/i.test(t)&&!c){out.innerHTML=`<div class="qbox"><div class="qt">⚠ ${e?'Conjecturer required':'需注明猜想者'}</div>${e?'This looks like a pre-existing problem with a known source — fill in the conjecturer field; you cannot first-claim it under your own name.':'该问题疑似已有出处的既有问题，请填写「猜想者」字段——不能以自己名义首发。'}</div>`;return;}
+  S.newIssues.unshift({id:'n'+Date.now(),title:t,body:b,who:S.cur,tag:d(USERS[S.cur].role).split('·')[0].trim(),conj:c,stars:0,date:'2026-09-10',ai:{rec:false,summary:{zh:'新入库 · 独立簇 · 摘要已生成',en:'Newly ingested · standalone cluster · summary generated'},merged:[]}});
+  save();renderIssues();toast(e?'Problem posted to the plaza (persisted)':'问题已发布到广场（已持久化）');
+}
+/* ================== Submit wizard ================== */
+let SUB={step:1,type:null,ai:'own',exag:null,checks:null};
+function quotaText(){
+  const e=E(),u=USERS[S.cur];
+  if(u.quota===0)return e?'AI-to-Lean: not available on your tier — upload your own Lean code.':'AI 转 Lean：当前档位不可用——请自行上传 Lean 代码。';
+  if(u.quota===Infinity)return e?'AI-to-Lean: unlimited (prize-winner whitelist).':'AI 转 Lean：不限次（大奖得主白名单）。';
+  return (e?'AI-to-Lean quota: ':'AI 转 Lean 额度：')+(e?u.quota+' / month':'每月 '+u.quota+' 次')+(e?' (technical failures refund automatically)':'（技术性失败自动退还）');
+}
+function renderSubmit(){
+  const e=E(),s=SUB;
+  document.getElementById('app').innerHTML=`<div class="page active">
+    <h1>${e?'Submit':'投稿'}</h1><div class="sub">${e?'v2.2: the three-layer check flags, never rejects — failing submissions still go live with color badges; the only rejection gate is the abuse scan':'v2.2：三重 check 只标识、不拒绝——未通过同样上架，带颜色标识；唯一的拒绝门是滥用扫描'}</div>
+    <div class="banner">🎟 ${quotaText()}</div>
+    <div class="be" style="margin-top:10px"><span class="tag-be">${e?'FOR HAND-WRITTEN AUTHORS':'致纯手工作者'}</span>${e?'If you write your papers entirely yourself, SICM HUB behaves <b>exactly like arXiv</b> for you — non-exclusive license, you keep copyright, journal resubmission is free. The difference: your submission contributes to the platform dataset (same non-exclusive license), which powers the three-layer pre-check and the Copilot theorem search — the source of your 10 free Copilot searches per day.':'若论文完全由你手写，SICM HUB 对你<b>就是 arXiv</b>——非独家许可、版权归你、可自由再投期刊。区别在于：投稿会（同一非独家许可下）贡献平台数据集，用于改进三层预检与 Copilot 定理检索——这也是你每天 10 次 Copilot 额度的来源。'}</div>
+    <div class="steps">
+      <div class="step" style="${s.step===1?'border-color:var(--accent)':''}"><div class="n">1</div><b>${e?'Type tag (required)':'类型标签（必选）'}</b></div>
+      <div class="step" style="${s.step===2?'border-color:var(--accent)':''}"><div class="n">2</div><b>${e?'Content + exaggeration check':'内容 + 夸大检测'}</b></div>
+      <div class="step" style="${s.step===3?'border-color:var(--accent)':''}"><div class="n">3</div><b>${e?'Three-layer check → live':'三层 check → 上架'}</b></div>
+    </div>
+    <div id="sub-body"></div>
+    <div class="be"><span class="tag-be">${e?'BACKEND':'后端机制'}</span><b>${e?'Submission pipeline':'投稿流水线'}</b>${e?': <code>gateway</code> fingerprint dedup (the single rejection point) → <code>pipeline-orchestrator</code> three-layer check (L2 dual-agent cross-confirmation; L3 calls the <code>lean-service</code> container pool) → exaggeration-detection agent → ingest. <b>Suspension (narrowed in v2.2)</b>: only fingerprint reposts and linked multi-accounts trigger it.':': <code>gateway</code> 指纹查重（唯一拒绝点）→ <code>pipeline-orchestrator</code> 三层 check（L2 双 agent 交叉确认；L3 调 <code>lean-service</code> 容器池）→ 夸大检测 agent → 入库。<b>停用（v2.2 收窄）</b>：仅指纹重投与多号关联触发。'}</div>
+  </div>`;
+  const body=document.getElementById('sub-body');
+  if(s.step===1){
+    body.innerHTML=`<div class="card"><h3 style="margin-top:0">${e?'Choose the publication type (placed at the most prominent spot of the repo page)':'选择发布类型（置于仓库页最显眼位置）'}</h3>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">${['full','partial','framework'].map(t=>`<span class="type-tag ${typeClass(t)}" style="cursor:pointer" onclick="pickType('${t}')">${esc(d(TYPE_LABEL[t]))}</span>`).join('')}</div>
+      <p class="small muted" style="margin-top:10px">${e?'Complete papers are no longer required — frameworks and partial results can be published, but the tag must be truthful; the exaggeration check and commentators will verify it.':'不再要求完整论文：框架、部分结果均可发布，但标签必须如实——夸大检测与评论员会核对。'}</p>
+      <h3 style="margin-top:18px">${e?'AI-involvement declaration (v2.3)':'AI 参与声明（v2.3）'}</h3>
+      <div class="grid g2" style="margin-top:8px">
+        <div class="ai-item ${s.ai!=='pure'?'rec':''}" style="cursor:pointer;padding:12px 14px" onclick="pickAi('own')">
+          <b>✍ ${e?'My own article (default)':'作者本人的文章（默认）'}</b>
+          <p class="small muted" style="margin-top:4px">${e?'Written and fully understood by me. <b>No commentator required</b> for this kind of submission — commentary stays voluntary.':'由本人撰写并完全理解。此类投稿<b>无需评论员介入</b>，评论员仍可自愿评论。'}</p>
+        </div>
+        <div class="ai-item ${s.ai==='pure'?'rec':''}" style="cursor:pointer;padding:12px 14px" onclick="pickAi('pure')">
+          <b>🤖 ${e?'Pure AI solution — I do not understand it':'纯 AI 解决 · 本人完全不理解'}</b>
+          <p class="small muted" style="margin-top:4px">${e?'The result was produced entirely by AI and I cannot vouch for it. It goes to the front of the commentator queue: commentators work <b>with AI</b> to deliver a complete human explanation — translating, restructuring and verifying it for the community.':'成果完全由 AI 产生，本人无法为其背书。此类文章优先推送评论员：评论员与 AI <b>合作</b>产出完整人类解释——为社区拆解、翻译并验证。'}</p>
+        </div>
+      </div>
+      <p class="small muted" style="margin-top:8px">${e?'Unmarked submissions default to “my own article”. Falsely declaring a pure-AI work as your own is picked up by the wording-strength check.':'不标注默认视为「作者本人的文章」。纯 AI 成果伪标为本人文章将被夸大检测标记。'}</p>
+      <button class="btn primary" style="margin-top:12px" ${s.type?'':'disabled'} onclick="SUB.step=2;renderSubmit()">${e?'Next →':'下一步 →'}</button></div>`;
+  }else if(s.step===2){
+    body.innerHTML=`<div class="grid g2"><div class="card">
+      <h3 style="margin-top:0">${e?'Title & abstract':'标题与摘要'}</h3>
+      <label class="f">${e?'Title':'标题'}</label><input type="text" id="s-title" value="We proved the Lusztig conjecture for all quantum groups">
+      <label class="f">Abstract</label><textarea id="s-abs">We prove the Lusztig conjecture. Our method also settles the unitary case.</textarea>
+      <div style="margin-top:12px"><button class="btn primary" onclick="runExag()">${e?'Run exaggeration check':'运行夸大检测'}</button> <button class="btn" onclick="SUB.step=1;renderSubmit()">← ${e?'Back':'上一步'}</button></div>
+      <div id="s-exag" style="margin-top:10px"></div></div>
+      <div class="card"><h3 style="margin-top:0">${e?'What it checks':'检测什么'}</h3><p class="small">${e?'Matches <b>claimed strength vs actually proved content</b> across title, abstract and body — e.g. the proof covers only a special case while the title states the general claim.':'对<b>标题、Abstract、正文</b>做「声明强度 vs 实际证明内容」匹配——例如证明的只是特例，标题却写一般命题。'}</p>
+      <ul style="padding-left:18px" class="small"><li>${e?'On detection: instant hint + wording suggestion (one-click adoption)':'检出 → 即时提示 + 措辞替换建议（一键采纳）'}</li><li>${e?'If you insist: goes live with an amber wording-strength badge + the AI comparison evidence':'坚持原措辞 → 上架带橙色「措辞强度警示」+ AI 比对依据'}</li><li>${e?'Warning count feeds commentator priority ranking':'警示数量计入评论员优先级排序'}</li></ul></div></div>`;
+    if(s.exag!==null&&s.exag!==undefined)showExag();
+  }else{
+    const bad=SUB.checks,u=USERS[S.cur];
+    body.innerHTML=`<div class="card">
+      <h3 style="margin-top:0">${e?'Simulated three-layer check':'三层 check 模拟结果'}（${esc(d(TYPE_LABEL[SUB.type]||SUB.type))}）</h3>
+      <table class="t"><tr><th>${e?'Layer':'层'}</th><th>${e?'Outcome':'结论'}</th><th>${e?'Listing badge':'上架标识'}</th></tr>
+      <tr><td>L1 ${e?'Language':'语言'}</td><td>${e?'Formatting up to bar (pre-formatted by the official workflow)':'格式达标（官方工作流预格式化）'}</td><td><span class="pill p-green">${e?'Green':'绿标'}</span></td></tr>
+      <tr><td>L2 ${e?'Semantics':'语义'}</td><td>${bad.l2==='A'?(e?'No suspicious points (dual-agent cross-confirmation)':'未发现可疑点（双 agent 交叉确认）'):(e?'Skipped steps and pending clarifications found (diagnostic list attached)':'发现跳步与待澄清点（诊断清单已附）')}</td><td>${bad.l2==='A'?`<span class="pill p-green">A · ${e?'green':'绿标'}</span>`:`<span class="pill p-amber">B · ${e?'amber, pending clarification':'黄标待澄清'}</span>`}</td></tr>
+      <tr><td>L3 Lean</td><td>${bad.lean==='pass'?(e?'Compiled; statement-consistency check passed':'编译通过，陈述一致性核对通过'):bad.lean==='fail'?(e?'Compilation failed: the diagnostic report itemizes failures (line-level)':'编译失败：诊断报告逐条定位（行级）'):(e?'AI transpilation failed: dependency structure not covered by Mathlib · quota refunded':'AI 转译失败：依赖结构 Mathlib 未覆盖 · 额度已退还')}</td><td>${bad.lean==='pass'?`<span class="pill p-green">✓ ${e?'green':'绿标'}</span>`:bad.lean==='fail'?`<span class="pill p-red">✗ ${e?'red "Failed Lean Check"':'红标「未通过 Lean Check」'}</span>`:`<span class="pill p-gray">${e?'gray · technical failure':'灰标 · 技术性失败'}</span>`}</td></tr></table>
+      ${u.quota===0?`<p class="small muted" style="margin-top:10px">ℹ ${e?'Your tier has no AI-to-Lean service — the result above assumes a manual Lean upload.':'当前档位无 AI 转 Lean 服务——以上结果按「自行上传 Lean」模拟。'}</p>`:''}
+      <p class="small muted" style="margin-top:10px">${e?'None of the above blocks publication. The only rejection: a fingerprint hit for reposts or linked multi-accounts.':'以上均不阻止上架。唯一拒绝情形：指纹命中重投或多号关联。'}</p>
+      <button class="btn primary" style="margin-top:12px" onclick="doPublish()">${e?'Confirm & publish':'确认提交上架'}</button></div>`;
+  }
+}
+function pickType(t){SUB.type=t;renderSubmit();}
+function pickAi(a){SUB.ai=a;renderSubmit();}
+function runExag(){
+  const t=document.getElementById('s-title').value,a=document.getElementById('s-abs').value;
+  SUB.exag=/prove[sd]?\s+(the\s+)?\w+\s+conjecture/i.test(t)&&!/partially/i.test(t);
+  SUB._t=t;SUB._a=a;showExag();
+}
+function showExag(){
+  const e=E(),el=document.getElementById('s-exag');if(!el)return;
+  el.innerHTML=SUB.exag?
+  `<div class="qbox"><div class="qt">⚠ ${e?'Exaggeration check: the claimed result may be overstated':'夸大检测：成果可能有夸大成分'}</div>${e?'The title claims "proved the … conjecture", but the method in the body covers only part of the cases.':'标题声明「proved the … conjecture」，但正文方法仅覆盖部分情形。'}<br>${e?'Suggested:':'建议：'}<code>partially proved the Lusztig conjecture</code> ${e?'or':'或'} <code>proved the Lusztig conjecture in the case of type A</code><br><button class="btn small primary" style="margin-top:8px" onclick="adoptExag()">${e?'Adopt suggestion':'一键采纳建议'}</button> <button class="btn small" onclick="SUB.exagForced=true;toast('${e?'Keeping the original wording: goes live with the amber wording-strength badge':'坚持原措辞：上架带橙色「措辞强度警示」标识'}')">${e?'Keep original wording':'坚持原措辞'}</button></div>`:
+  `<div class="qbox" style="border-color:var(--green);background:var(--green-soft)"><div class="qt" style="color:var(--green)">✓ ${e?'Exaggeration check found no obvious issues':'夸大检测未发现明显问题'}</div></div>`;
+  const b=document.createElement('div');b.style.marginTop='10px';
+  b.innerHTML=`<button class="btn primary" onclick="SUB.step=3;SUB.checks={lean:${SUB.exag?`'tech'`:`'pass'`},l2:'${SUB.exag?'B':'A'}'};renderSubmit()">${e?'Next: three-layer check →':'下一步：三层 check →'}</button>`;
+  el.appendChild(b);
+}
+function adoptExag(){
+  document.getElementById('s-title').value='We partially proved the Lusztig conjecture (type A case)';
+  document.getElementById('s-abs').value='We partially prove the Lusztig conjecture for type A quantum groups. Our method also works in the unitary case.';
+  SUB.exag=false;SUB._t=document.getElementById('s-title').value;toast(E()?'Wording updated — the exaggeration warning is cleared':'措辞已更新，夸大警示解除');showExag();
+}
+function doPublish(){
+  const e=E(),id='new'+Date.now().toString(36);
+  S.newRepos.unshift({id,type:SUB.type,title:{zh:SUB._t||'（无标题）',en:SUB._t||'(untitled)'},msc:{zh:'MSC · 待自动分类',en:'MSC · auto-classification pending'},authors:[S.cur],contributors:[S.cur],stars:0,score:(Math.random()*400+80)|0,
+    check:{lean:SUB.checks.lean,l2:SUB.checks.l2,exag:!!SUB.exagForced,tech:SUB.checks.lean==='tech'},ai:SUB.ai,
+    versions:[{v:'v1',date:'2026-09-10',note:{zh:'初版（经由完整投稿向导上架）',en:'Initial version (published via the full submit wizard)'}}],
+    comments:[],prs:[],discussion:'public',closed:false,abs:{zh:SUB._a||'（摘要略）',en:SUB._a||'(abstract omitted)'}});
+  save();SUB={step:1,type:null,ai:'own',exag:null,checks:null};location.hash='#/repo/'+id;toast(e?'Repo published (persisted)':'仓库已上架（已持久化）');
+}
+/* ================== Commentators ================== */
+function renderCommentators(){
+  const e=E(),cm=isCm();
+  if(cm){
+    const me=USERS[S.cur];
+    const q=allRepos().filter(r=>{const f=USERS[S.cur].field||'*';return f==='*'||repoField(r)===f;}).sort((a,b)=>(b.ai==='pure')-(a.ai==='pure')||b.score-a.score).slice(0,4);
+    const myQ=allRepos().flatMap(r=>repoComments(r).filter(c=>c.by===S.cur&&c.qbox&&c.qbox.length).map(c=>({r,c})));
+    const pend=allRepos().flatMap(r=>r.prs.filter(p=>prStatus(r,p)==='pending'));
+    document.getElementById('app').innerHTML=`<div class="page active">
+      <h1>${e?'Commentator workbench':'评论员工作台'}</h1>
+      <div class="sub">${e?'You are signed in as a commentator — this page shows your staff view; regular users see the public introduction & application panel instead.':'当前身份为评论员——本页展示工作人员视图；普通用户看到的是公开介绍与申请面板。'}</div>
+      <div class="grid g2">
+        <div class="card"><h3 style="margin-top:0">${e?'Dispatch queue':'推送队列'}</h3>
+          <p class="small muted">${e?'Priority = pure-AI articles first (v2.3), then direction match + star queue score + exaggeration-warning count. Heat metrics are sharded by field; cross-field queries are refused and audited.':'优先级 = 纯 AI 文章优先（v2.3），其后为方向匹配 + star 排队分 + 夸大警示数。热度指标按方向分片存储，跨方向查询在服务层拒绝并留审计日志。'}</p>
+          ${q.map(r=>`<div class="ai-item"><a onclick="location.hash='#/repo/${r.id}'">${esc(d(r.title))}</a><br><span class="small muted">${e?'queue score':'排队分'} ${r.score} · 🔥 ${(r.score/10)|0}${r.check.exag?' · ⚠ '+(e?'exaggeration flag':'夸大警示'):''}${r.ai==='pure'?' · 🤖 '+(e?'pure AI · needs human explanation':'纯 AI · 待人类解释'):''}</span></div>`).join('')}
+          <p class="small muted">🔒 NDA · ${e?'confidential backend data':'后台保密数据'}</p></div>
+        <div class="card"><h3 style="margin-top:0">${e?'My open problem-box items':'我的未决问题 box'}</h3>
+          ${myQ.length?myQ.map(({r,c})=>c.qbox.map((qb,i)=>`<div class="ai-item"><a onclick="location.hash='#/repo/${r.id}'">${r.id} · Q${i+1}</a> — ${esc(d(qb))}</div>`).join('')).join(''):`<p class="small muted">${e?'No open items.':'暂无未决条目。'}</p>`}
+          <p class="small muted">${e?'Successors link by Q-ID (chained follow-up); unresolved leaves = your open-suspicion count.':'后继评论以 Q-ID 连边（链式跟进）；未满足叶子数 = 疑点未决数。'}</p></div>
+      </div>
+      <div class="card"><h3 style="margin-top:0">${e?'PRs awaiting approval (any commentator may approve)':'待批准 PR（任一评论员均可批准）'}</h3>
+        ${pend.length?pend.map(p=>`<div class="ai-item">${p.id} — ${esc(d(p.title))} <span class="small muted">by ${esc(d(USERS[p.by]?USERS[p.by].name:p.by))}</span></div>`).join(''):`<p class="small muted">${e?'Nothing pending.':'暂无。'}</p>`}</div>
+      <div class="be"><span class="tag-be">${e?'BACKEND':'后端机制'}</span>${e?'Dispatch: <code>dispatch-service</code> builds the priority queue from pure-AI articles first (v2.3), then direction match + star score + warning count; heat metrics are stored field-sharded.':'推送：<code>dispatch-service</code> 按 纯 AI 文章优先（v2.3）+ 方向匹配 + star 排队分 + 夸大警示数 生成优先队列；热度指标按方向分片存储，跨方向查询在服务层拒绝并留审计日志。'}</div>
+    </div>`;return;
+  }
+  document.getElementById('app').innerHTML=`<div class="page active">
+    <h1>${e?'Commentator system':'评论员体系'}</h1><div class="sub">${e?'Not reviewers — AI + human collaborators · official staff · application / invitation · pure-AI articles receive a complete human explanation; author-own articles need none':'不是传统审稿人——AI 与人类的合作者 · 官方人员 · 申请/邀请制 · 纯 AI 文章获得完整人类解释，作者本人文章无需介入'}</div>
+    <div class="grid g2">
+      <div class="card"><h3 style="margin-top:0">${e?'Roster':'评论员名录'}</h3>
+        ${Object.entries(USERS).filter(([k,u])=>d(u.role).includes('评论员')||d(u.role).includes('Commentator')).map(([k,u])=>`<div class="who">${avatar(k)}<div>${userLine(k)}<br><span class="small muted">${esc(d(u.inst||''))} · star ${e?'weight':'权重'} ${u.weight}</span></div></div>`).join('')}
+        <button class="btn small" style="margin-top:8px" onclick="toast('${e?'Application materials submitted (demo): qualification review is a human process, professor-level and above prioritized, prize winners invited directly':'已提交申请材料（演示）：资格审核为人工流程，教授级以上优先，大奖得主直接获邀'}')">${e?'Apply to become a commentator':'申请成为评论员'}</button></div>
+      <div class="card"><h3 style="margin-top:0">${e?'Key rules':'规则要点'}</h3>
+        <ul style="padding-left:18px" class="small">
+          <li>${e?'<b>Pure-AI articles first</b> (v2.3): submitters may declare “pure AI — I do not understand it”; these go to the front of the dispatch queue and receive a <b>complete human explanation</b> — the commentator works with AI to translate, restructure and verify the result':'<b>纯 AI 文章优先</b>（v2.3）：投稿人可声明「纯 AI · 本人完全不理解」；此类文章优先推送，获得<b>完整人类解释</b>——评论员与 AI 合作，为社区拆解、重构并验证成果'}</li>
+          <li>${e?'Author-own articles (unmarked default) do not require commentator involvement — commentary is voluntary':'作者本人的文章（默认不标注）无需评论员介入，评论纯属自愿'}</li>
+          <li>${e?'Commentators discuss results via <b>videos or articles</b> and point out suspicious spots':'评论以<b>视频或文章</b>谈论结果并指出可疑之处'}</li>
+          <li>${e?'Problems must be <b>simplified</b> into the problem box (adoptable entries)':'问题必须<b>拟简</b>放入问题 box（可接手条目）'}</li>
+          <li>${e?'Comments are <b>version-anchored</b>; versions are kept forever':'评论须<b>注明针对版本</b>；版本永久保留'}</li>
+          <li>${e?'Heat data is visible only to same-field commentators (field isolation + NDA)':'热度数据仅本方向评论员可见（方向隔离 + NDA）'}</li>
+          <li>${e?'May comment on any repo across fields':'可跨方向评论任意仓库'}</li>
+        </ul>
+        <div class="be"><span class="tag-be">${e?'BACKEND':'后端机制'}</span>${e?'Dispatch: <code>dispatch-service</code> builds the priority queue from pure-AI articles first (v2.3), then direction match + star score + exaggeration-warning count; heat metrics are stored field-sharded, cross-field queries refused at the service layer with audit logs.':'推送：<code>dispatch-service</code> 按 纯 AI 文章优先（v2.3）+ 方向匹配 + star 排队分 + 夸大警示数 生成优先队列；热度指标按方向分片存储，跨方向查询在服务层拒绝并留审计日志。'}</div></div>
+    </div>
+  </div>`;
+}
+/* ================== User profile ================== */
+function renderUser(uid){
+  const e=E(),u=USERS[uid]||{name:uid,role:{zh:'普通用户',en:'Regular user'},badge:'p-gray',inst:'—',weight:'1×',quota:0};
+  const myRepos=allRepos().filter(r=>r.authors.includes(uid)||r.contributors.includes(uid));
+  document.getElementById('app').innerHTML=`<div class="page active">
+    <div style="display:flex;gap:18px;align-items:center">${avatar(uid,64)}<div>
+      <h1>${esc(d(u.name))} <span class="pill ${u.badge}">${esc(d(u.role))}</span></h1>
+      <div class="sub">${esc(d(u.inst))} · star ${e?'weight':'权重'} ${u.weight}</div></div></div>
+    <div class="grid g2">
+      <div class="card"><h3 style="margin-top:0">${e?'Contribution record':'贡献档案'}</h3>
+        <p class="small">📦 ${e?'repos':'仓库'} ${myRepos.length} · 💬 ${e?'comments':'评论'} ${myRepos.reduce((a,r)=>a+repoComments(r).filter(c=>c.by===uid).length,0)} · 🔀 PR ${allRepos().reduce((a,r)=>a+r.prs.filter(p=>p.by===uid).length,0)}</p>
+        <p class="small muted">${e?'The record exports in one click (PDF / BibTeX) as an academic CV; all contributions are logged as itemized entries.':'档案可一键导出（PDF / BibTeX）作为学术履历；全部贡献按条目记录。'}</p></div>
+      <div class="card"><h3 style="margin-top:0">${e?'Entitlements':'权益'}（${uid===S.cur?(e?'your tier':'你的档位'):(e?'this tier':'该档位')}）</h3>
+        <p class="small">${e?'AI-to-Lean quota':'AI 转 Lean 额度'}：${(USERS[uid]||u).quota===0?(e?'none (upload your own Lean)':'无转译服务（自行上传 Lean）'):(USERS[uid]||u).quota===Infinity?(e?'unlimited':'不限次'):(e?(USERS[uid]||u).quota+' / month':'每月 '+(USERS[uid]||u).quota+' 次')}</p>
+        <button class="btn small primary" onclick="toast('${e?'DM request sent (demo): dm-service is end-to-end encrypted and never enters the public area':'已发送私聊请求（演示）：dm-service 端到端加密，内容不入公开区'}')">✉ ${e?'DM to collaborate':'私聊寻求合作'}</button></div>
+    </div>
+    <h2>${e?'Repos involved':'参与的仓库'}</h2><div class="grid g2">${myRepos.map(repoCard).join('')||`<p class="muted">${e?'None yet.':'暂无。'}</p>`}</div>
+  </div>`;
+}
+/* ================== Mechanics (full rule set) ================== */
+function renderAbout(){
+  const e=E();
+  document.getElementById('app').innerHTML=`<div class="page active">
+    <h1>${e?'Platform mechanics (full v2.2 rule set)':'平台机制（v2.2 全量规则）'}</h1><div class="sub">${e?'Every rule below is from design doc v2.2; site behavior maps to it one-to-one.':'以下为 SICM HUB 设计方案 v2.2 的规则全表，站点行为与此一一对应。'}</div>
+    <h2>${e?'Three-layer check: graded publication':'三层 check：分级放行'}</h2>
+    <table class="t"><tr><th>${e?'Layer':'层'}</th><th>${e?'Outcome':'结论'}</th><th>${e?'Listing badge':'上架标识'}</th></tr>
+    <tr><td>L1 ${e?'Language':'语言'}</td><td>${e?'Pre-formatted by the official AI workflow · format only':'官方 AI 工作流预格式化 · 只判格式'}</td><td><span class="pill p-green">${e?'Green':'绿标'}</span> / <span class="pill p-gray">${e?'Gray "language below bar" (not rejected)':'灰标「语言未达标」（不拒绝）'}</span></td></tr>
+    <tr><td>L2 ${e?'Semantics':'语义'}</td><td>${e?'A clean / B pending clarification / C suspected substantive error (dual-agent cross-confirmation + appeal review)':'A 无可疑 / B 待澄清 / C 疑似错误（双 agent 交叉确认 + 申诉复核）'}</td><td><span class="pill p-green">A ${e?'green':'绿标'}</span> <span class="pill p-amber">B ${e?'amber':'黄标'}</span> <span class="pill p-red">C ${e?'red warning (not a verdict)':'红色警示（非结论）'}</span></td></tr>
+    <tr><td>L3 Lean</td><td>${e?'Compilation + statement-consistency check':'编译 + 陈述一致性核对'}</td><td><span class="pill p-green">✓ ${e?'green':'绿标'}</span> <span class="pill p-red">✗ ${e?'red + diagnostic':'红标 + 诊断'}</span> <span class="pill p-gray">${e?'gray · transpilation failed (exempt)':'灰标 · 转译失败（豁免）'}</span></td></tr></table>
+    <h2>${e?'Suspension rules (narrowed in v2.2: abuse only)':'停用规则（v2.2 收窄：仅限滥用）'}</h2>
+    <table class="t"><tr><th>${e?'Scenario':'场景'}</th><th>${e?'Handling':'处理'}</th></tr>
+    <tr><td>${e?'Academic failures (L1/L2/L3 failed, transpilation failed)':'学术性失败（L1/L2/L3 未通过、转译失败）'}</td><td><b>${e?'All suspension-for-failure abolished as of v2.2 — published with badges':'v2.2 起全部废止停发——放行 + 标识'}</b></td></tr>
+    <tr><td>${e?'Fingerprint repost of an article that once triggered suspension':'曾触发停用的文章指纹重投'}</td><td><span class="pill p-red">${e?'Submission entry suspended directly (bypasses all check layers)':'提交入口直接停用（不进任何审核层）'}</span></td></tr>
+    <tr><td>${e?'Linked multi-account hit':'多号关联命中'}</td><td>${e?'Linked accounts frozen together; human appeal channel for unbanning':'关联账号同步冻结，人工申诉通道解封'}</td></tr></table>
+    <h2>${e?'AI-involvement declaration & the commentator’s job (v2.3)':'AI 参与声明与评论员定位（v2.3）'}</h2>
+    <table class="t"><tr><th>${e?'Declaration':'声明'}</th><th>${e?'Meaning':'含义'}</th><th>${e?'Consequence':'后果'}</th></tr>
+    <tr><td><span class="pill p-gray">✍ ${e?'My own article (default)':'作者本人的文章（默认）'}</span></td><td>${e?'Unmarked submissions are assumed to be written and fully understood by the author':'不标注默认视为由本人撰写并完全理解'}</td><td>${e?'<b>No commentator required</b> — commentary stays voluntary':'<b>无需评论员介入</b>，评论纯属自愿'}</td></tr>
+    <tr><td><span class="pill p-purple">🤖 ${e?'Pure AI — I do not understand it':'纯 AI · 本人完全不理解'}</span></td><td>${e?'The result was produced entirely by AI; the submitter cannot vouch for it':'成果完全由 AI 产生，投稿人无法为其背书'}</td><td>${e?'Front of the commentator dispatch queue: commentators work <b>with AI</b> to deliver a complete human explanation — translating, restructuring and verifying the result for the community. Not a verdict; not the old reviewer model':'进入评论员推送队列最前列：评论员与 AI <b>合作</b>产出完整人类解释——为社区拆解、重构并验证成果。不是裁决，也不是旧的审稿人模式'}</td></tr></table>
+    <h2>${e?'Stars & queueing':'star 与排队'}</h2>
+    <p class="small">${e?'Weights: regular 1× / student 2× / professor 5× / prize winner 10×; queue score = Σ(weight × time decay) − anti-vote-manipulation downweight (same IP range / same batch / linked-cluster cross-votes count at 0.1× minimum). Stars only decide exposure and commentator attention, <b>never correctness</b>. Star counts, likes and view counts are <b>backend-only everywhere</b>: regular users never see them; the repo author sees only their own repo’s overview; commentators see only their own field (cross-field queries are refused at the service layer and audited).':'权重：普通 1× / 学生 2× / 教授 5× / 大奖得主 10×；排队分 = Σ(权重 × 时间衰减) − 反刷票降权（同 IP 段/同批次/关联簇互投最低 0.1×）。star 只决定曝光与评论员注意力，<b>绝不参与正确性判断</b>。star 数、点赞、浏览量在全站均为<b>后台保密数据</b>：普通用户一律不可见；仓库作者仅见自己仓库概览；评论员仅见本方向（跨方向查询拒绝并留审计）。'}</p>
+    <h2>${e?'Repo collaboration':'仓库协作'}</h2>
+    <p class="small">${e?'PRs: anyone may submit → incremental AI review → platform-visible → approved by the repo author <b>or any commentator</b> → published as a branch, the merger joins the author list. Versions coexist forever; comments/PRs anchor to versions. Discussion is public by default; the holder may set it <b>fully private</b> (while private: users cannot comment or PR, the public issue block closes; the article and versions always stay public). Repo closure → all contributors and commentators <b>co-sign</b> the publication.':'PR：全员可提交 → AI 增量审核 → 全平台可见 → 仓库作者<b>或任一评论员</b>批准 → 发布为分支，合入者加入作者行列。版本永久共存；评论/PR 锚定版本。讨论默认公开，持有人可设<b>完全私密</b>（私密期间用户禁评论/禁 PR/issue 区块关闭；文章与版本始终公开）。仓库关闭 → 全体贡献者与评论员<b>共同署名</b>发表。'}</p>
+    <h2>${e?'Copyright & acknowledgment':'版权与致谢'}</h2>
+    <p class="small">${e?'arXiv-style non-exclusive license; authors keep copyright; the platform assigns a DOI. Final publication must <b>acknowledge SICM HUB (with the repo DOI) or list SICM HUB as second affiliation</b> — either is acceptable. Submissions must declare the degree of AI involvement.':'arXiv 式非独占许可，作者保留版权；平台分配 DOI。最终发表须<b>致谢 SICM HUB（附仓库 DOI）或将 SICM HUB 署名为第二机构</b>，任选其一。投稿须声明 AI 参与程度。'}</p>
+    <h2>${e?'Identity verification':'身份认证'}</h2>
+    <p class="small">${e?'Edu-email domain pre-screening + ORCID / institutional endorsement (professor tier); prize winners join via a manual whitelist under public oversight.':'教育邮箱域初筛 + ORCID/机构背书叠加（教授级）；大奖得主人工白名单并公开接受监督。'}</p>
+    <h2>${e?'Role-differentiated interfaces':'不同人员的界面'}</h2>
+    <p class="small">${e?'Switch identity in the top-right dropdown — each role sees a different interface: commentators get a dispatch queue with confidential heat data and platform-wide PR approval rights; repo holders get the privacy toggle, PR approval on their repos and the Lean source download; students see their AI-to-Lean quota; regular users see the rate-limit status and appeal entry.':'在右上角下拉切换身份——每种角色看到的界面不同：评论员有推送队列、保密热度与全平台 PR 批准权；仓库持有人有私密开关、本仓库 PR 批准权与 Lean 源码下载；学生看到 AI 转 Lean 额度；普通用户看到限流状态与申诉入口。'}</p>
+    <h2>${e?'Hand-written authors, Copilot & anonymous takes (v2.4)':'纯手工作者、Copilot 与匿名接手（v2.4）'}</h2>
+    <table class="t"><tr><th>${e?'Item':'条目'}</th><th>${e?'Rule':'规则'}</th></tr>
+    <tr><td><span class="pill p-gray">✍ ${e?'Hand-written authors':'纯手工作者'}</span></td><td>${e?'The platform is <b>experience-identical to arXiv</b>: non-exclusive license, copyright retained, free journal resubmission; in return the submission contributes to the platform dataset (same license), powering the pre-check and Copilot.':'平台体验<b>与 arXiv 完全一致</b>：非独家许可、保留版权、可自由再投期刊；作为回报，投稿（同等许可下）贡献平台数据集，用于预检与 Copilot。'}</td></tr>
+    <tr><td><span class="pill p-purple">✦ Copilot</span></td><td>${e?'<b>Precise theorem-level search</b> over every article’s theorem statements (incl. Lean) and all public problems. Quota: regular 10 / day · edu-verified 30 / day · professors & commentators unlimited.':'对全部文章的定理陈述（含 Lean）与公开问题做<b>定理级精确检索</b>。额度：普通 10 次/天 · 教育认证 30 次/天 · 教授与评论员不限。'}</td></tr>
+    <tr><td><span class="pill p-teal">🙋 ${e?'Anonymous take':'匿名接手'}</span></td><td>${e?'Anyone may take a plaza problem; a self-rated confidence (1–10) is recorded via <code>take-service</code>. Identities are encrypted and never exposed — only aggregates (taker count, confidence average) are public.':'任何人可接手广场问题，自评把握度（1–10）由 <code>take-service</code> 记录。身份加密不公开——仅聚合统计（人数、均值）全员可见。'}</td></tr>
+    <tr><td><span class="pill p-amber">🔒 ${e?'Engagement data':'互动数据'}</span></td><td>${e?'Star counts, likes, views and queue scores are backend-only site-wide: visible only to same-field commentators (NDA, cross-field queries refused & audited) and to the author for their own repo.':'star 数、点赞、浏览量与排队分全站仅后台可见：仅本方向评论员（NDA，跨方向拒绝并审计）与仓库作者（自己仓库）可见。'}</td></tr></table>
+    <h2>${e?'Roadmap':'落地路线图'}</h2>
+    <table class="t"><tr><th>${e?'Stage':'阶段'}</th><th>${e?'Deliverables':'交付'}</th></tr>
+    <tr><td><span class="pill p-purple">MVP</span></td><td>${e?'Three-layer pre-check loop (own-Lean submissions only) + account system':'三层预检闭环（仅自带 Lean 投稿）+ 账户体系'}</td></tr>
+    <tr><td><span class="pill p-blue">v1.0</span></td><td>${e?'AI-to-Lean quota system, star queueing, field classification, fingerprint scanning':'AI 转 Lean 额度制、star 排队、方向分类、指纹扫描'}</td></tr>
+    <tr><td><span class="pill p-teal">v1.5</span></td><td>${e?'Commentator system, PR collaboration flow, version coexistence, appeal channel':'评论员体系、PR 协作流、版本共存、申诉通道'}</td></tr>
+    <tr><td><span class="pill p-amber">v2.0</span></td><td>${e?'Open problem loop, seminars, SICM math conference, pre-check API':'开放问题循环、研讨班、SICM 数学会议、预检 API'}</td></tr></table>
+  </div>`;
+}
+/* ================== Copilot ================== */
+function toggleCopilot(open){document.getElementById('copilot').classList.toggle('open',open);if(open)document.getElementById('cp-q').focus();}
+function cpLimit(){const u=USERS[S.cur];return u&&u.cpq!==undefined?u.cpq:10;}
+function cpQuotaText(){
+  const e=E(),q=cpLimit();
+  if(q===Infinity)return e?'Copilot · unlimited':'Copilot · 不限次';
+  return 'Copilot · '+(q-S.cp.n)+' / '+q+(e?' today':' 今日');
+}
+function updCpQuota(){const el=document.getElementById('cp-quota');if(el)el.textContent=cpQuotaText();}
+function copilotSearch(){
+  const e=E(),q=document.getElementById('cp-q').value.trim().toLowerCase(),b=document.getElementById('cp-body');
+  const lim=cpLimit();
+  if(!q){b.innerHTML=`<p class="small muted">${e?'Try: "center", "reflection equation", "Theorem 2.7", "open"':'试试：「中心」「反射方程」「定理 2.7」「未解决」'}</p>`;updCpQuota();return;}
+  if(lim!==Infinity&&S.cp.n>=lim){
+    b.innerHTML=`<div class="ai-item" style="border-color:var(--red)"><b>⛔ ${e?'Daily Copilot quota used up':'今日 Copilot 额度已用完'}</b><p class="small muted" style="margin-top:4px">${e?'Regular users get 10 precise theorem-level searches per day (edu-verified tiers get more). Resets at midnight.':'普通用户每天 10 次定理级精确检索（教育认证档位更高）。每日零点重置。'}</p></div>`;updCpQuota();return;}
+  if(lim!==Infinity){S.cp.n++;save();updCpQuota();}
+  const hits=[
+    ...allRepos().flatMap(r=>{const T=THEOREMS[r.id];if(!T)return[];return T.thms.filter(t=>(d(t.tag)+' '+d(t.body)).toLowerCase().includes(q)).map(t=>({rt:(e?'Theorem · ':'定理 · ')+d(TYPE_LABEL[r.type]||r.type),rs:d(t.tag)+' — '+d(t.body).replace(/<[^>]+>/g,'').slice(0,100)+'…',go:'#/repo/'+r.id}));}),
+    ...allRepos().filter(r=>(d(r.title)+' '+d(r.type)+' '+d(r.abs)+' '+d(r.msc)).toLowerCase().includes(q)).map(r=>({rt:e?'Repo · ':'仓库 · '+d(TYPE_LABEL[r.type]||r.type),rs:d(r.title)+(r.closed?(e?' (closed · co-signed publication)':'（已关闭 · 共同署名发表）'):''),go:'#/repo/'+r.id})),
+    ...allIssues().filter(i=>!i.blocked&&(d(i.title)+' '+d(i.body)).toLowerCase().includes(q)).map(i=>({rt:e?'Problem card':'问题卡片',rs:d(i.title)+' — '+d(USERS[i.who]?USERS[i.who].name:i.who),go:'#/issues'})),
+    ...Object.entries(USERS).filter(([k,u])=>d(u.name).toLowerCase().includes(q)||d(u.role).toLowerCase().includes(q)).map(([k,u])=>({rt:e?'User':'用户',rs:d(u.name)+' · '+d(u.role),go:'#/user/'+k}))
+  ];
+  const head=lim===Infinity?'':`<p class="small muted" style="margin:2px 0 8px">✦ ${e?'Precise theorem-level search over all articles & public problems':'对全部文章与公开问题的定理级精确检索'}${e?' · '+(lim-S.cp.n)+' left today':' · 今日剩余 '+(lim-S.cp.n)}</p>`;
+  b.innerHTML=head+(hits.length?hits.map(h=>`<div class="res" onclick="toggleCopilot(false);location.hash='${h.go}'"><div class="rt">${h.rt}</div><div class="rs">${esc(h.rs)}</div></div>`).join(''):
+  `<p class="small muted">${e?'No local hits. The live backend widens this to pure semantic recall (vector neighbors + keyword reranking).':'本地未命中。线上后端将放宽为纯语义召回（向量近邻 + 关键词重排）。'}</p>`);
+}
+
+route();</script>
+</body>
+</html>
